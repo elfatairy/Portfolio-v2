@@ -62,7 +62,7 @@ export default function Header() {
 function SectionLink({ section, active }: { section: Section, active: boolean }) {
   const bgClassName = active ? 'bg-foreground/14 group-has-[:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
   return (
-    <div className={`font-semibold text-lg text-foreground rounded-full ${bgClassName} transition duration-200`}>
+    <div className={`font-semibold text-lg text-foreground rounded-full ${bgClassName} transition duration-300`}>
       <Link to="/" className="px-5 py-1 inline-block" hash={section}>{sections[section].label}</Link>
     </div>
   )
