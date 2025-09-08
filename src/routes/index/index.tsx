@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Hero from './~components/hero'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -6,7 +7,8 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <div className="text-center">
+    <div className="dark bg-background">
+      <Hero />
     </div>
   )
 }
