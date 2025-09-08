@@ -1,19 +1,18 @@
 import { useSections } from "../~hooks/useSections";
-import Overlay from "./Overlay";
 import { useEffect, useRef } from "react";
 
-export default function Hero() {
+export default function Contact() {
   const { updateSection } = useSections()
   const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (!ref.current) return
-    updateSection('hero', ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight)
+    updateSection('contact', ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight)
   }, [])
 
   return (
-    <div className="relative flex flex-col justify-center h-screen" ref={ref}>
-      <Overlay />
+    <div className="min-h-screen text-foreground" ref={ref}>
+      <h2>Contact</h2>
     </div>
   )
 }

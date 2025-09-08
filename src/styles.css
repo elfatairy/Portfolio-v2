@@ -75,7 +75,7 @@ code {
     oklch(0.2996 0.0639 235.39 / 0.987) 90.5%,
     oklch(0.2996 0.0639 235.39 / 1) 100%
   );
-  --foreground: oklch(0.985 0 0);
+  --foreground: #ccdbdc;
   --card: oklch(0.141 0.005 285.823);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.141 0.005 285.823);
