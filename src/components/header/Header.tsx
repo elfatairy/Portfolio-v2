@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { useSections } from '../routes/index/~hooks/useSections'
+import { useSections } from '../../routes/index/~hooks/useSections'
+import { useIsScrolled } from './useIsScrolled'
 
 const sections = {
   hero: { label: 'Home' },
@@ -13,15 +14,9 @@ const sections = {
 export type Section = keyof typeof sections
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const isScrolled = useIsScrolled()
   const { sectionsEdges } = useSections()
   const [activeSection, setActiveSection] = useState<Section | null>(null)
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setIsScrolled(window.scrollY > 50)
-    })
-  }, [])
 
   useEffect(() => {
     function handleScroll() {
