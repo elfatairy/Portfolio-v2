@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="max-w-260 z-elevated">
         <h1 className="text-7xl font-bold text-primary leading-[1.1]">Hi, I'm Omar Hassan.</h1>
         <p className="text-primary/80 font-bold text-7xl leading-[1.1]">An Eager Frontend Developer.</p>
-        <p className="text-primary/70 text-xl mt-8 text-balance">
+        <p className="text-primary text-xl mt-8 text-balance">
           I am a frontend engineer with some backend experience, passionate about creating high-notch applications. I focus on making apps performant, accessible, responsive, and highly user-friendly. I care deeply about my work and always put in the extra effort, constantly aspiring to improve and be a better version of myself.
         </p>
         <div className="mt-8 flex gap-4">
