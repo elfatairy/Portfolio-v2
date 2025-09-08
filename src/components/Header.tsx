@@ -32,6 +32,7 @@ export default function Header() {
       })
     }
     document.addEventListener('scroll', handleScroll)
+    handleScroll()
 
     return () => {
       document.removeEventListener('scroll', handleScroll)
@@ -47,7 +48,7 @@ export default function Header() {
           backdropFilter: isScrolled ? 'blur(15px)' : 'blur(0px)'
         }}
         transition={{ duration: 0.2 }}
-        className="flex flex-row justify-between gap-2.5 p-2.5 rounded-full"
+        className="flex flex-row justify-between p-2.5 rounded-full group"
       >
         <SectionLink section="hero" active={activeSection === 'hero'} />
         <SectionLink section="skills" active={activeSection === 'skills'} />
@@ -59,17 +60,10 @@ export default function Header() {
 }
 
 function SectionLink({ section, active }: { section: Section, active: boolean }) {
+  const bgClassName = active ? 'bg-foreground/14 group-has-[:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
   return (
-    <motion.div
-      animate={{
-        backgroundColor: active ?
-          'color-mix(in srgb, var(--foreground) 20%, transparent)' :
-          'color-mix(in srgb, var(--foreground) 0%, transparent)'
-      }}
-      transition={{ duration: 0.2 }}
-      className="px-5 py-1 font-semibold text-lg text-foreground rounded-full"
-    >
-      <Link to="/" hash={section}>{sections[section].label}</Link>
-    </motion.div>
+    <div className={`font-semibold text-lg text-foreground rounded-full ${bgClassName} transition duration-200`}>
+      <Link to="/" className="px-5 py-1 inline-block" hash={section}>{sections[section].label}</Link>
+    </div>
   )
 }
