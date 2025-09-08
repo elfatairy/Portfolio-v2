@@ -12,14 +12,14 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <div className="bg-background">
-      <SectionsProvider>
+    <SectionsProvider>
+      <div className="bg-background">
         <Header />
         <Hero />
         <Skills />
         <Projects />
         <Contact />
-      </SectionsProvider>
-    </div>
+      </div>
+    </SectionsProvider>
   )
 }

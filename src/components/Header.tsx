@@ -40,7 +40,7 @@ export default function Header() {
   }, [sectionsEdges])
 
   return (
-    <header className="p-2 flex gap-2 fixed top-5 left-0 right-0 justify-center z-2">
+    <header className="p-2 flex gap-2 fixed top-5 left-0 right-0 justify-center z-navigation">
       <motion.nav
         initial={{ backgroundColor: '#004D6600' }}
         animate={{

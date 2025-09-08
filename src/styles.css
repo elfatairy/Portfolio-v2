@@ -155,3 +155,24 @@ code {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .z-background {
+    z-index: -1;
+  }
+  .z-base {
+    z-index: 1;
+  }
+  .z-elevated {
+    z-index: 10;
+  }
+  .z-navigation {
+    z-index: 20;
+  }
+  .z-overlay {
+    z-index: 30;
+  }
+  .z-toast {
+    z-index: 40;
+  }
+}
