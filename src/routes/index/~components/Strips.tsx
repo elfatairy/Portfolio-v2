@@ -1,0 +1,62 @@
+import { X, LinkedIn, GitHub, LeetCode } from './SocialIcons'
+import { motion } from 'motion/react'
+
+const socials = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/elfatairy',
+    icon: () => <GitHub />,
+    color: '#ffffff'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/omar-hassan-81888320b',
+    icon: () => <LinkedIn />,
+    color: '#0077B1'
+  },
+  {
+    name: 'LeetCode',
+    url: 'https://leetcode.com/u/omar13102005',
+    icon: () => <LeetCode />,
+    color: '#FFA116'
+  },
+  {
+    name: 'X',
+    url: 'https://x.com/intent/follow?screen_name=omar_elfat76510',
+    icon: () => <X />,
+    color: '#ffffff'
+  }
+]
+
+export function SocialsStrip() {
+  return (
+    <div className="flex flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation text-primary">
+      {socials.map((social) => (
+        <motion.a
+          key={social.name}
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className='text-primary'
+          whileHover={{ scale: 1.2, color: social.color }}
+          whileTap={{ scale: 0.9 }}
+          transition={{
+            color: { duration: 0 },
+            scale: { duration: 0.2 }
+          }}
+        >
+          {social.icon()}
+        </motion.a>
+      ))}
+      <div className="w-[1px] h-20 bg-primary rounded-full" />
+    </div>
+  )
+}
+
+export function EmailStrip() {
+  return (
+    <div className="flex justify-center">
+      {/* <h2>Email</h2> */}
+    </div>
+  )
+}

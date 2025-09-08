@@ -15,7 +15,6 @@ export default function Hero() {
   return (
     <div className="relative flex flex-col justify-center items-center h-screen" ref={ref}>
       <Overlay />
-      {/* <span>Hey, I am</span> */}
       <div className="max-w-260 z-elevated">
         <h1 className="text-7xl font-bold text-primary leading-[1.1]">Hi, I'm Omar Hassan.</h1>
         <p className="text-primary/80 font-bold text-7xl leading-[1.1]">An Eager Frontend Developer.</p>

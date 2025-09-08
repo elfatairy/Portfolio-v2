@@ -5,6 +5,7 @@ import Projects from './~components/Projects'
 import Contact from './~components/Contact'
 import Header from '../../components/header/Header'
 import { SectionsProvider } from './~hooks/useSections'
+import { EmailStrip, SocialsStrip } from './~components/Strips'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -19,6 +20,8 @@ function App() {
         <Skills />
         <Projects />
         <Contact />
+        <SocialsStrip />
+        <EmailStrip />
       </div>
     </SectionsProvider>
   )
