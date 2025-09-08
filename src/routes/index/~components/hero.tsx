@@ -24,7 +24,7 @@ export default function Hero() {
         </p>
         <div className="mt-8 flex gap-4">
           <Button variant="outline" size="lg">Say Hi</Button>
-          <Button variant="outline" size="lg">Download CV</Button>
+          <Button variant="outline" size="lg">Download Resume</Button>
         </div>
       </div>
     </div>
