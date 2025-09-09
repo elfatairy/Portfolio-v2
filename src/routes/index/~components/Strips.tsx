@@ -27,6 +27,7 @@ const socials = [
     color: '#ffffff'
   }
 ]
+const email = 'elfatairy@omarhassan.net'
 
 export function SocialsStrip() {
   return (
@@ -55,8 +56,23 @@ export function SocialsStrip() {
 
 export function EmailStrip() {
   return (
-    <div className="flex justify-center">
-      {/* <h2>Email</h2> */}
-    </div>
+    <div className="flex flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation text-primary">
+      <motion.a
+        href={`mailto:${email}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className='text-primary pl-1'
+        style={{
+          letterSpacing: '0.1em',
+          WebkitWritingMode: 'vertical-rl',
+          writingMode: 'vertical-rl'
+        }}
+        whileHover={{ color: '#CCDBDC' }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {email}
+      </motion.a>
+      <div className="w-[1px] h-20 bg-primary rounded-full" />
+    </div >
   )
 }

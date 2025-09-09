@@ -11,8 +11,8 @@ export default function Contact() {
   }, [])
 
   return (
-    <div className="min-h-screen text-foreground" ref={ref}>
-      <h2>Contact</h2>
+    <div className="min-h-screen text-foreground justify-center" ref={ref}>
+      <h2 className="text-6xl font-bold text-center">Contact</h2>
     </div>
   )
 }
