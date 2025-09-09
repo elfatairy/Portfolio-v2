@@ -109,7 +109,7 @@ code {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 outline-offset-3;
   }
   body {
     @apply bg-background text-foreground;
