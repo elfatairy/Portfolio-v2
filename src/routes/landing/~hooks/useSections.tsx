@@ -1,4 +1,4 @@
-import type { Section } from "@/components/header/Header"
+import type { Section } from "@/components/Header"
 import { createContext, useContext, useState } from "react"
 
 export interface Edges {

@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { useSections } from '../../routes/~/~hooks/useSections'
-import { useIsScrolled } from './useIsScrolled'
+import { useSections } from '@/routes/landing/~hooks/useSections'
+import { useIsScrolled } from '../hooks/useIsScrolled'
 
 const sections = {
   hero: { label: 'About Me' },
@@ -58,7 +58,7 @@ function SectionLink({ section, active }: { section: Section, active: boolean })
   const bgClassName = active ? 'bg-foreground/14 group-has-[:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
   return (
     <div className={`font-semibold text-sm xs:text-base md:text-lg text-foreground rounded-full ${bgClassName} transition duration-300`}>
-      <Link to="/" hash={section} className="px-3 xs:px-5 py-2 inline-block">{sections[section].label}</Link>
+      <Link to="/dashboard" hash={section} className="px-3 xs:px-5 py-2 inline-block">{sections[section].label}</Link>
     </div>
   )
 }
