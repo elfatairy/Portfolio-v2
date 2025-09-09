@@ -31,7 +31,7 @@ const email = 'elfatairy@omarhassan.net'
 
 export function SocialsStrip() {
   return (
-    <div className="flex flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation text-primary">
+    <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation text-primary hidden md:flex">
       {socials.map((social) => (
         <motion.a
           key={social.name}
@@ -56,7 +56,7 @@ export function SocialsStrip() {
 
 export function EmailStrip() {
   return (
-    <div className="flex flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation text-primary">
+    <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation text-primary hidden md:flex">
       <motion.a
         href={`mailto:${email}`}
         target="_blank"
