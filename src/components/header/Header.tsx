@@ -5,7 +5,7 @@ import { useSections } from '../../routes/~/~hooks/useSections'
 import { useIsScrolled } from './useIsScrolled'
 
 const sections = {
-  hero: { label: 'Home' },
+  hero: { label: 'About Me' },
   skills: { label: 'Skills' },
   projects: { label: 'Projects' },
   contact: { label: 'Contact' }
