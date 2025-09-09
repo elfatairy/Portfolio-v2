@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { useSections } from '@/routes/landing/~hooks/useSections'
 import { useIsScrolled } from '../hooks/useIsScrolled'
+import LightDarkToggle from './LightDarkToggle'
 
 const sections = {
   hero: { label: 'About Me' },
@@ -43,22 +44,25 @@ export default function Header() {
           backdropFilter: isScrolled ? 'blur(15px)' : 'blur(0px)'
         }}
         transition={{ duration: 0.2 }}
-        className="flex flex-row justify-between p-2.5 rounded-full group"
+        className="flex flex-row justify-between items-center p-2.5 rounded-full group"
       >
         <SectionLink section="hero" active={activeSection === 'hero'} />
         <SectionLink section="skills" active={activeSection === 'skills'} />
         <SectionLink section="projects" active={activeSection === 'projects'} />
         <SectionLink section="contact" active={activeSection === 'contact'} />
+        <div className="ml-2">
+          <LightDarkToggle />
+        </div>
       </motion.nav>
     </header>
   )
 }
 
 function SectionLink({ section, active }: { section: Section, active: boolean }) {
-  const bgClassName = active ? 'bg-foreground/14 group-has-[:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
+  const bgClassName = active ? 'bg-foreground/14 group-has-[a:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
   return (
     <div className={`font-semibold text-sm xs:text-base md:text-lg text-foreground rounded-full ${bgClassName} transition duration-300`}>
-      <Link to="/dashboard" hash={section} className="px-3 xs:px-5 py-2 inline-block">{sections[section].label}</Link>
+      <Link to="/landing" hash={section} className="px-3 xs:px-5 py-2 inline-block">{sections[section].label}</Link>
     </div>
   )
 }
