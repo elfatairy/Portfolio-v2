@@ -1,35 +1,39 @@
+import { useTheme } from '@/contexts/ThemeContext'
 import { X, LinkedIn, GitHub, LeetCode } from './SocialIcons'
 import { motion } from 'motion/react'
 
-const socials = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/elfatairy',
-    icon: () => <GitHub />,
-    color: '#ffffff'
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/omar-hassan-81888320b',
-    icon: () => <LinkedIn />,
-    color: '#0077B1'
-  },
-  {
-    name: 'LeetCode',
-    url: 'https://leetcode.com/u/omar13102005',
-    icon: () => <LeetCode />,
-    color: '#FFA116'
-  },
-  {
-    name: 'X',
-    url: 'https://x.com/intent/follow?screen_name=omar_elfat76510',
-    icon: () => <X />,
-    color: '#ffffff'
-  }
-]
 const email = 'elfatairy@omarhassan.net'
 
 export function SocialsStrip() {
+  const { isDarkMode } = useTheme()
+
+  const socials = [
+    {
+      name: 'GitHub',
+      url: 'https://github.com/elfatairy',
+      icon: () => <GitHub />,
+      color: isDarkMode ? '#ffffff' : '#181717'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/omar-hassan-81888320b',
+      icon: () => <LinkedIn />,
+      color: '#0077B1'
+    },
+    {
+      name: 'LeetCode',
+      url: 'https://leetcode.com/u/omar13102005',
+      icon: () => <LeetCode />,
+      color: '#FFA116'
+    },
+    {
+      name: 'X',
+      url: 'https://x.com/intent/follow?screen_name=omar_elfat76510',
+      icon: () => <X />,
+      color: isDarkMode ? '#ffffff' : '#000000'
+    }
+  ]
+
   return (
     <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation text-primary hidden md:flex">
       {socials.map((social) => (
@@ -55,19 +59,21 @@ export function SocialsStrip() {
 }
 
 export function EmailStrip() {
+  const { isDarkMode } = useTheme()
+
   return (
     <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation text-primary hidden md:flex">
       <motion.a
         href={`mailto:${email}`}
         target="_blank"
         rel="noopener noreferrer"
-        className='text-primary pl-1'
+        className='text-primary pl-2 pr-1'
         style={{
           letterSpacing: '0.1em',
           WebkitWritingMode: 'vertical-rl',
           writingMode: 'vertical-rl'
         }}
-        whileHover={{ color: '#CCDBDC' }}
+        whileHover={{ color: isDarkMode ? '#FFFFFF' : '#000000', y: -10 }}
         whileTap={{ scale: 0.9 }}
       >
         {email}

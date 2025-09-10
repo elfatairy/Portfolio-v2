@@ -38,9 +38,9 @@ export default function Header() {
   return (
     <header className="p-2 flex gap-2 fixed top-5 left-0 right-0 justify-center z-navigation">
       <motion.nav
-        initial={{ backgroundColor: '#004D6600' }}
+        initial={{ backgroundColor: 'color-mix(in srgb, var(--secondary) 0%, transparent)' }}
         animate={{
-          backgroundColor: isScrolled ? '#004D6680' : '#004D6600',
+          backgroundColor: isScrolled ? 'color-mix(in srgb, var(--secondary) 50%, transparent)' : 'color-mix(in srgb, var(--secondary) 0%, transparent)',
           backdropFilter: isScrolled ? 'blur(15px)' : 'blur(0px)'
         }}
         transition={{ duration: 0.2 }}
@@ -59,7 +59,7 @@ export default function Header() {
 }
 
 function SectionLink({ section, active }: { section: Section, active: boolean }) {
-  const bgClassName = active ? 'bg-foreground/14 group-has-[a:hover]:bg-foreground/0 hover:bg-foreground/14' : 'hover:bg-foreground/14'
+  const bgClassName = active ? 'bg-tertiary/14 group-has-[a:hover]:bg-tertiary/0 hover:bg-tertiary/14' : 'hover:bg-tertiary/14'
   return (
     <div className={`font-semibold text-sm xs:text-base md:text-lg text-foreground rounded-full ${bgClassName} transition duration-300`}>
       <Link to="/landing" hash={section} className="px-3 xs:px-5 py-2 inline-block">{sections[section].label}</Link>
