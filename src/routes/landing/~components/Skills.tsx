@@ -8,72 +8,72 @@ const skills = [
   {
     name: 'JavaScript ES6+',
     link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-    icon: <JavaScript size={50} />,
+    icon: <JavaScript size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#FDF3CE',
     color: '#DAAB00',
   },
   {
     name: 'TypeScript',
     link: 'https://www.typescriptlang.org/',
-    icon: <TypeScript size={50} />,
+    icon: <TypeScript size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#D9E8F5',
     color: '#3178C6',
   },
   {
     name: 'React JS',
     link: 'https://react.dev/',
-    icon: <React size={50} />,
+    icon: <React size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#D8F6FF',
     color: '#2081C3',
   },
   {
     name: 'Tailwind CSS',
     link: 'https://tailwindcss.com/',
-    icon: <TailwindCSS size={50} />,
+    icon: <TailwindCSS size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#9AD6FE',
     color: '#016FB9',
   },
   {
     name: 'React Query',
     link: 'https://tanstack.com/query/latest/docs/react/overview',
-    icon: <ReactQuery size={50} />,
+    icon: <ReactQuery size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#FE9AA4',
     color: '#C20114',
   },
   {
     name: 'Redux Toolkit',
     link: 'https://redux-toolkit.js.org/',
-    icon: <Redux size={50} />,
+    icon: <Redux size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#E788B3',
     color: '#7E1946',
   },
   {
     name: 'React Testing Library',
     link: 'https://testing-library.com/docs/react-testing-library/intro/',
-    icon: <ReactTestingLibrary size={50} />,
+    icon: <ReactTestingLibrary size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#FE8587',
     color: '#A50104',
   },
   {
     name: 'Figma',
     link: 'https://www.figma.com/',
-    icon: <Figma size={50} />,
+    icon: <Figma size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#F6AD8D',
     color: '#AA3D0E',
   },
   {
     name: 'Motion',
     link: 'https://motion.dev/',
-    icon: <Motion size={50} />,
+    icon: <Motion size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#FFE570',
     color: '#8F7500',
   },
   {
     name: 'React Router',
     link: 'https://reactrouter.com/en/main',
-    icon: <ReactRouter size={50} />,
+    icon: <ReactRouter size={window.innerWidth > 480 ? 50 : 40} />,
     bgColor: '#FD87AA',
-    color: '#93032E',
+    color: '#94032E',
   }
 ]
 
@@ -89,7 +89,9 @@ export default function Skills() {
   return (
     <div className="mx-5 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center" ref={ref}>
       <h2 className="text-5xl font-bold text-center">Skills</h2>
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 xs:gap-4 justify-items-center sm:mx-auto w-full sm:w-fit">
+      <div
+        className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 xs:gap-4 justify-items-center w-full sm:w-fit mx-auto"
+      >
         {skills.map((skill) => (
           <Card key={skill.name} name={skill.name} icon={skill.icon} link={skill.link} color={skill.color} bgColor={skill.bgColor} />
         ))}
@@ -140,9 +142,9 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
         scale: { duration: 0.2 }
       }}
     >
-      <div className="w-full h-full flex flex-col gap-4 items-center text-primary">
-        <span className="mt-14">{icon}</span>
-        <span className="font-bold text-xl text-center flex md:hidden">{name}</span>
+      <div className="w-full h-full flex flex-col gap-4 items-center md:justify-center text-primary">
+        <span className="max-md:mt-14">{icon}</span>
+        <span className="font-bold text-base xs:text-xl text-center flex md:hidden">{name}</span>
       </div>
       <motion.div
         variants={parnetVariant}
