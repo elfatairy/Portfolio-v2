@@ -35,14 +35,14 @@ export function SocialsStrip() {
   ]
 
   return (
-    <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation text-primary hidden md:flex">
+    <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation hidden md:flex">
       {socials.map((social) => (
         <motion.a
           key={social.name}
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
-          className='text-primary'
+          className='text-foreground'
           whileHover={{ scale: 1.2, color: social.color }}
           whileTap={{ scale: 0.9 }}
           transition={{
@@ -53,32 +53,30 @@ export function SocialsStrip() {
           {social.icon()}
         </motion.a>
       ))}
-      <div className="w-[1px] h-20 bg-primary rounded-full" />
+      <div className="w-[1px] h-20 bg-foreground rounded-full" />
     </div>
   )
 }
 
 export function EmailStrip() {
-  const { isDarkMode } = useTheme()
-
   return (
-    <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation text-primary hidden md:flex">
+    <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation hidden md:flex">
       <motion.a
         href={`mailto:${email}`}
         target="_blank"
         rel="noopener noreferrer"
-        className='text-primary pl-2 pr-1'
+        className='text-foreground pl-2 pr-1'
         style={{
           letterSpacing: '0.1em',
           WebkitWritingMode: 'vertical-rl',
           writingMode: 'vertical-rl'
         }}
-        whileHover={{ color: isDarkMode ? '#FFFFFF' : '#000000', y: -10 }}
+        whileHover={{ y: -10 }}
         whileTap={{ scale: 0.9 }}
       >
         {email}
       </motion.a>
-      <div className="w-[1px] h-20 bg-primary rounded-full" />
+      <div className="w-[1px] h-20 bg-foreground rounded-full" />
     </div >
   )
 }
