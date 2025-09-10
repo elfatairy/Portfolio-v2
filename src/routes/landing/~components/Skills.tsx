@@ -89,7 +89,7 @@ export default function Skills() {
   return (
     <div className="mx-5 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center" ref={ref}>
       <h2 className="text-5xl font-bold text-center">Skills</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 xs:gap-4 justify-items-center sm:mx-auto w-full sm:w-fit">
         {skills.map((skill) => (
           <Card key={skill.name} name={skill.name} icon={skill.icon} link={skill.link} color={skill.color} bgColor={skill.bgColor} />
         ))}
@@ -108,6 +108,12 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
       transition: {
         duration: 0.2,
         staggerChildren: 0.1
+      }
+    },
+    tap: {
+      opacity: 1,
+      transition: {
+        duration: 0.2
       }
     }
   }
@@ -128,14 +134,15 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative w-full flex flex-col items-center gap-3 p-4 rounded-2xl bg-primary-foreground min-w-30 h-60 overflow-hidden"
+      className={`relative flex flex-col items-center gap-3 p-4 rounded-2xl bg-primary-foreground w-full sm:w-58 h-60 overflow-hidden`}
       whileTap={{ scale: 0.95 }}
       transition={{
         scale: { duration: 0.2 }
       }}
     >
-      <div className="w-full h-full flex items-center justify-center text-primary">
-        {icon}
+      <div className="w-full h-full flex flex-col gap-4 items-center text-primary">
+        <span className="mt-14">{icon}</span>
+        <span className="font-bold text-xl text-center flex md:hidden">{name}</span>
       </div>
       <motion.div
         variants={parnetVariant}
@@ -144,7 +151,8 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
         }}
         initial="initial"
         whileHover="hover"
-        className={`text-foreground absolute inset-0 flex items-center justify-center overflow-hidden`}
+        whileTap="tap"
+        className={`text-foreground absolute inset-0 items-center justify-center overflow-hidden hidden md:flex`}
       >
         <motion.div
           className="font-bold text-2xl max-w-50 text-center"
