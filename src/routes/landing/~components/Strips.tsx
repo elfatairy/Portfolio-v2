@@ -1,5 +1,5 @@
 import { useTheme } from '@/contexts/ThemeContext'
-import { X, LinkedIn, GitHub, LeetCode } from './SocialIcons'
+import { X, LinkedIn, GitHub, LeetCode } from '../../../components/Icons'
 import { motion } from 'motion/react'
 
 const email = 'elfatairy@omarhassan.net'
@@ -44,6 +44,9 @@ export function SocialsStrip() {
           rel="noopener noreferrer"
           className='text-foreground'
           whileHover={{ scale: 1.2, color: social.color }}
+          animate={{
+            color: 'var(--foreground)'
+          }}
           whileTap={{ scale: 0.9 }}
           transition={{
             color: { duration: 0 },

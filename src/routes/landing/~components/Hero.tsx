@@ -13,7 +13,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <div id="hero" className="relative flex flex-col items-center mb-15 lg:mb-40" ref={ref}>
+    <div id="hero" className="relative flex flex-col items-center mb-15 lg:mb-35" ref={ref}>
       <Overlay />
       <div className="max-w-260 mx-5 xs:mx-15 md:mx-35 mt-30 lg:mt-40 z-elevated">
         <h1 className="text-3xl 2xs:text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1]">Hi, I'm Omar Hassan.</h1>
