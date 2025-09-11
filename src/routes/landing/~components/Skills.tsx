@@ -87,7 +87,11 @@ export default function Skills() {
   }, [])
 
   return (
-    <div className="mx-4 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center" ref={ref}>
+    <div
+      className="mx-4 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center pt-15 lg:pt-25"
+      id="skills"
+      ref={ref}
+    >
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Skills</h2>
       <div
         className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 xs:gap-4 justify-items-center w-full sm:w-fit mx-auto"
@@ -102,6 +106,13 @@ export default function Skills() {
 
 function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactNode, link: string, color: string, bgColor: string }) {
   const { isDarkMode } = useTheme()
+
+  const grandParentVariant = {
+    initial: { scale: 1 },
+    tap: {
+      scale: 0.95,
+    }
+  }
 
   const parnetVariant = {
     initial: { opacity: 0 },
@@ -137,10 +148,14 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
       target="_blank"
       rel="noopener noreferrer"
       className={`relative flex flex-col items-center gap-3 p-4 rounded-2xl bg-primary-foreground w-full sm:w-58 h-60 overflow-hidden`}
-      whileTap={{ scale: 0.95 }}
       transition={{
         scale: { duration: 0.2 }
       }}
+      variants={grandParentVariant}
+      initial="initial"
+      whileHover="hover"
+      whileFocus="hover"
+      whileTap="tap"
     >
       <div className="w-full h-full flex flex-col gap-4 items-center md:justify-center text-primary">
         <span className="max-md:mt-14">{icon}</span>
@@ -151,9 +166,6 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
         animate={{
           backgroundColor: isDarkMode ? color : bgColor,
         }}
-        initial="initial"
-        whileHover="hover"
-        whileTap="tap"
         className={`text-foreground absolute inset-0 items-center justify-center overflow-hidden hidden md:flex`}
       >
         <motion.div

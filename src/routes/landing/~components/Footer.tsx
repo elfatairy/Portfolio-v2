@@ -55,6 +55,7 @@ export default function Footer() {
   return (
     <motion.footer
       className="bg-background h-auto xs:h-160 lg:h-[100vh]!"
+      id="contact"
       initial="hidden"
       whileInView="visible"
       variants={grandParentVariants}
@@ -64,7 +65,7 @@ export default function Footer() {
       }}
       viewport={{
         once: true,
-        amount: 0.9
+        amount: 0.85
       }}
     >
       <motion.div

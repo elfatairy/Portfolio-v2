@@ -11,7 +11,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <div className="min-h-screen text-foreground justify-center" ref={ref}>
+    <div className="min-h-screen text-foreground justify-center mt-15 lg:mt-35" id="projects" ref={ref}>
       <h2 className="text-6xl font-bold text-center">Projects</h2>
     </div>
   )

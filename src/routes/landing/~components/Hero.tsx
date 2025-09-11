@@ -13,9 +13,9 @@ export default function Hero() {
   }, [])
 
   return (
-    <div id="hero" className="relative flex flex-col items-center mb-15 lg:mb-35" ref={ref}>
+    <div id="hero" className="relative flex flex-col items-center" ref={ref}>
       <Overlay />
-      <div className="max-w-260 mx-4 xs:mx-15 md:mx-35 mt-30 lg:mt-40 z-elevated">
+      <div className="max-w-260 mx-4 xs:mx-15 md:mx-35 mt-30 lg:mt-40 z-elevated lg:mb-10">
         <h1 className="text-3xl 2xs:text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1]">Hi, I'm Omar Hassan.</h1>
         <p className="text-foreground/80 font-bold text-3xl 2xs:text-4xl sm:text-5xl lg:text-7xl leading-[1.1]">An Eager Frontend Developer.</p>
         <p className="text-foreground text-base 2xs:text-base sm:text-xl lg:text-2xl mt-8 text-balance">
