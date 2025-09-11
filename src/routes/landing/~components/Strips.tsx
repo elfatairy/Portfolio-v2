@@ -1,48 +1,21 @@
 import { useTheme } from '@/contexts/ThemeContext'
-import { X, LinkedIn, GitHub, LeetCode } from '../../../components/Icons'
 import { motion } from 'motion/react'
 import { EMAIL } from '@/utils/contants'
+import { SOCIALS } from '@/utils/socials'
 
 export function SocialsStrip() {
   const { isDarkMode } = useTheme()
 
-  const socials = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/elfatairy',
-      icon: () => <GitHub />,
-      color: isDarkMode ? '#ffffff' : '#181717'
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/omar-hassan-81888320b',
-      icon: () => <LinkedIn />,
-      color: '#0077B1'
-    },
-    {
-      name: 'LeetCode',
-      url: 'https://leetcode.com/u/omar13102005',
-      icon: () => <LeetCode />,
-      color: '#FFA116'
-    },
-    {
-      name: 'X',
-      url: 'https://x.com/intent/follow?screen_name=omar_elfat76510',
-      icon: () => <X />,
-      color: isDarkMode ? '#ffffff' : '#000000'
-    }
-  ]
-
   return (
     <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation hidden md:flex">
-      {socials.map((social) => (
+      {SOCIALS.map((social) => (
         <motion.a
           key={social.name}
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
           className='text-foreground'
-          whileHover={{ scale: 1.2, color: social.color }}
+          whileHover={{ scale: 1.2, color: isDarkMode ? social.darkColor : social.color }}
           animate={{
             color: 'var(--foreground)'
           }}

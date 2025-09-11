@@ -6,9 +6,11 @@ import { toast } from "react-toastify"
 import { useState } from "react"
 import { EMAIL } from "@/utils/contants"
 import { useTheme } from "@/contexts/ThemeContext"
+import { SOCIALS } from "@/utils/socials"
 
 const footerPadding = 16
-const footerContentPadding = 60
+const footerContentHorizontalPadding = window.innerWidth > 640 ? 100 : 20
+const footerContentVerticalPadding = window.innerWidth > 480 ? 60 : 30
 
 export default function Footer() {
   const grandParentVariants = {
@@ -35,18 +37,24 @@ export default function Footer() {
 
   const childVariants = {
     hidden: {
-      padding: `${footerPadding + footerContentPadding}px`,
+      paddingTop: `${footerPadding + footerContentVerticalPadding}px`,
+      paddingBottom: `${footerPadding + footerContentVerticalPadding}px`,
+      paddingLeft: `${footerPadding + footerContentHorizontalPadding}px`,
+      paddingRight: `${footerPadding + footerContentHorizontalPadding}px`,
       borderRadius: '0'
     },
     visible: {
-      padding: `${footerContentPadding}px`,
+      paddingTop: `${footerContentVerticalPadding}px`,
+      paddingBottom: `${footerContentVerticalPadding}px`,
+      paddingLeft: `${footerContentHorizontalPadding}px`,
+      paddingRight: `${footerContentHorizontalPadding}px`,
       borderRadius: '20px'
     }
   }
 
   return (
     <motion.footer
-      className="bg-background h-[calc(100vh)]"
+      className="bg-background h-auto xs:h-160 lg:h-[100vh]!"
       initial="hidden"
       whileInView="visible"
       variants={grandParentVariants}
@@ -56,7 +64,7 @@ export default function Footer() {
       }}
       viewport={{
         once: true,
-        margin: '0px 0px -90% 0px'
+        amount: 0.9
       }}
     >
       <motion.div
@@ -68,7 +76,7 @@ export default function Footer() {
         }}
       >
         <motion.div
-          className="bg-footer-background h-full w-full rounded-20"
+          className="relative bg-footer-background h-full w-full rounded-20"
           variants={childVariants}
           transition={{
             duration: 0.6,
@@ -92,15 +100,16 @@ const verbs = [
 function FooterContent() {
   return (
     <div className="flex flex-col max-w-200 h-full mx-auto">
-      <h2 className="text-5xl font-semibold text-footer-foreground flex flex-col">
+      <h2 className="text-3xl xs:text-4xl lg:text-5xl font-semibold text-footer-foreground flex flex-col">
         <span className="">
           Let's
           <span className="">{' '} {verbs[0]}</span>
         </span>
         <span className="text-footer-foreground/70">something great together.</span>
       </h2>
-      <div className="flex gap-4 h-full">
+      <div className="flex flex-col gap-4 h-full">
         <FooterForm />
+        <FooterSocials />
       </div>
     </div>
   )
@@ -130,9 +139,9 @@ function FooterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col w-full h-full justify-between pt-26">
-      <div className="flex flex-col gap-16 text-footer-foreground pb-10">
-        <div className="flex gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col w-full h-full justify-between pt-12 xs:pt-26">
+      <div className="flex flex-col gap-8 xs:gap-16 text-footer-foreground pb-10">
+        <div className="flex gap-8 xs:gap-4 flex-col xs:flex-row">
           <Input
             type='text'
             autoComplete='name'
@@ -160,5 +169,33 @@ function FooterForm() {
       </div>
       <Button variant={isDarkMode ? "outline" : "outline-reverse"} size="lg" type="submit">Send</Button>
     </form>
+  )
+}
+
+function FooterSocials() {
+  const { isDarkMode } = useTheme()
+  return (
+    <div className="justify-center sm:justify-start mt-4 sm:absolute sm:bottom-15 sm:left-10 flex sm:flex-col gap-6 sm:gap-8">
+      {SOCIALS.map((social) => (
+        <motion.a
+          key={social.name}
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className='text-footer-foreground'
+          whileHover={{ scale: 1.2, color: isDarkMode ? social.darkColor : social.color }}
+          animate={{
+            color: 'var(--footer-foreground)'
+          }}
+          whileTap={{ scale: 0.9 }}
+          transition={{
+            color: { duration: 0 },
+            scale: { duration: 0.2 }
+          }}
+        >
+          {social.icon()}
+        </motion.a>
+      ))}
+    </div>
   )
 }
