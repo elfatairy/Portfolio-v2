@@ -1,44 +1,76 @@
 import { motion } from "motion/react"
 
+const footerPadding = 16
+const footerContentPadding = 100
+
 export default function Footer() {
-  const variants = {
+  const grandParentVariants = {
     hidden: {
-      marginBottom: '0',
-      paddingTop: '40px',
-      marginTop: '0',
-      marginLeft: '0',
-      marginRight: '0',
-      paddingLeft: '60px',
-      paddingRight: '60px',
+      paddingTop: '0',
+    },
+    visible: {
+      paddingTop: `${footerPadding}px`,
+    }
+  }
+
+  const parentVariants = {
+    hidden: {
+      paddingLeft: '0',
+      paddingRight: '0',
+      paddingBottom: '0'
+    },
+    visible: {
+      paddingLeft: `${footerPadding}px`,
+      paddingRight: `${footerPadding}px`,
+      paddingBottom: `${footerPadding}px`
+    }
+  }
+
+  const childVariants = {
+    hidden: {
+      padding: `${footerPadding + footerContentPadding}px`,
       borderRadius: '0'
     },
     visible: {
-      paddingTop: '20px',
-      marginBottom: '20px',
-      marginTop: '20px',
-      marginLeft: '20px',
-      marginRight: '20px',
-      paddingLeft: '40px',
-      paddingRight: '40px',
+      padding: `${footerContentPadding}px`,
       borderRadius: '20px'
     }
   }
 
   return (
     <motion.footer
-      className="bg-foreground h-[calc(100vh-40px)] px-15 py-35 mb-0"
+      className="bg-background h-[calc(100vh)]"
       initial="hidden"
       whileInView="visible"
-      variants={variants}
+      variants={grandParentVariants}
       transition={{
-        duration: 0.8
+        duration: 0.8,
+        ease: 'easeIn'
       }}
       viewport={{
         once: true,
         margin: '0px 0px -90% 0px'
       }}
     >
-      <h2 className="text-2xl font-bold text-white">Footer</h2>
+      <motion.div
+        className="bg-background h-full w-full relative z-overlay"
+        variants={parentVariants}
+        transition={{
+          duration: 0.8,
+          ease: 'easeIn'
+        }}
+      >
+        <motion.div
+          className="bg-foreground h-full w-full rounded-20"
+          variants={childVariants}
+          transition={{
+            duration: 0.8,
+            ease: 'easeIn'
+          }}
+        >
+          <h2 className="text-2xl font-bold text-white">Footer</h2>
+        </motion.div>
+      </motion.div>
     </motion.footer>
   )
 }

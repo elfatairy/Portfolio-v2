@@ -36,7 +36,7 @@ export default function Header() {
   }, [sectionsEdges])
 
   return (
-    <header className="p-2 flex gap-2 fixed top-2 left-0 right-0 justify-center z-navigation">
+    <header className="px-2 flex gap-2 fixed top-4 left-0 right-0 justify-center z-navigation">
       <motion.nav
         initial={{ backgroundColor: 'color-mix(in srgb, var(--nav) 0%, transparent)' }}
         animate={{
