@@ -174,7 +174,6 @@ function FooterForm() {
 }
 
 function FooterSocials() {
-  const { isDarkMode } = useTheme()
   return (
     <div className="justify-center sm:justify-start mt-4 sm:absolute sm:bottom-15 sm:left-10 flex sm:flex-col gap-6 sm:gap-8">
       {SOCIALS.map((social) => (
@@ -184,7 +183,7 @@ function FooterSocials() {
           target="_blank"
           rel="noopener noreferrer"
           className='text-footer-foreground'
-          whileHover={{ scale: 1.2, color: isDarkMode ? social.darkColor : social.color }}
+          whileHover={{ scale: 1.2, color: social.darkColor }}
           animate={{
             color: 'var(--footer-foreground)'
           }}
