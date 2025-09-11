@@ -87,8 +87,8 @@ export default function Skills() {
   }, [])
 
   return (
-    <div className="mx-5 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center" ref={ref}>
-      <h2 className="text-5xl font-bold text-center">Skills</h2>
+    <div className="mx-4 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center" ref={ref}>
+      <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Skills</h2>
       <div
         className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 xs:gap-4 justify-items-center w-full sm:w-fit mx-auto"
       >

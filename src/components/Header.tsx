@@ -44,13 +44,13 @@ export default function Header() {
           backdropFilter: isScrolled ? 'blur(15px)' : 'blur(0px)'
         }}
         transition={{ duration: 0.2 }}
-        className="flex flex-row justify-between items-center p-2.5 rounded-full group"
+        className="flex flex-row justify-between items-center p-1.5 xs:p-2.5 rounded-full group"
       >
         <SectionLink section="hero" active={activeSection === 'hero'} />
         <SectionLink section="skills" active={activeSection === 'skills'} />
         <SectionLink section="projects" active={activeSection === 'projects'} />
         <SectionLink section="contact" active={activeSection === 'contact'} />
-        <div className="ml-2">
+        <div className="ml-2 hidden 3xs:block">
           <LightDarkToggle />
         </div>
       </motion.nav>
