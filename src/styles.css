@@ -19,6 +19,11 @@ code {
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px var(--footer-background) inset !important;
+  -webkit-text-fill-color: var(--footer-foreground) !important;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
   border: 0px solid transparent;
@@ -68,6 +73,9 @@ code {
   --nav: #9AD1D4;
   --nav-foreground: #004D66;
   --nav-active: #004D6624;
+
+  --footer-background: #004D66;
+  --footer-foreground: #9AD1D4;
 }
 
 .dark {
@@ -101,7 +109,10 @@ code {
   --nav-active: #ccdbdc24;
   
   --primary: #9ad1d4;
-  --primary-foreground: #003852;
+  --primary-foreground: #004666;
+
+  --footer-background: #004666;
+  --footer-foreground: #9ad1d4;
 }
 
 @theme inline {
@@ -115,6 +126,9 @@ code {
   --color-nav: var(--nav);
   --color-nav-foreground: var(--nav-foreground);
   --color-nav-active: var(--nav-active);
+
+  --color-footer-background: var(--footer-background);
+  --color-footer-foreground: var(--footer-foreground);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

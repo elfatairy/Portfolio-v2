@@ -15,6 +15,8 @@ const buttonVariants = cva(
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "border-2 border-primary shadow-xs text-primary hover:bg-primary hover:text-primary-foreground",
+        "outline-reverse":
+          "border-2 border-primary-foreground shadow-xs text-background hover:bg-primary-foreground hover:text-primary",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 hover:bg-primary hover:text-primary-foreground",
         ghost:
