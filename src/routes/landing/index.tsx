@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import { SectionsProvider } from './~hooks/useSections'
 import { EmailStrip, SocialsStrip } from './~components/Strips'
 import SkipToContentBtn from './~components/SkipToContentBtn'
+import Footer from './~components/Footer'
 
 export const Route = createFileRoute('/landing/')({
   component: App,
@@ -27,6 +28,8 @@ function App() {
           <Projects />
           <Contact />
         </main>
+
+        <Footer />
       </div>
     </SectionsProvider>
   )
