@@ -160,10 +160,16 @@ input:-webkit-autofill {
   .z-elevated {
     z-index: 10;
   }
+  .z-elevated-2 {
+    z-index: 11;
+  }
   .z-navigation {
     z-index: 20;
   }
   .z-overlay {
+    z-index: 30;
+  }
+  .z-overlay-elevated {
     z-index: 30;
   }
   .z-toast {

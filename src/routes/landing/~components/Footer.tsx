@@ -54,7 +54,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-background h-auto max-h-180 lg:h-[100vh]!"
+      className="bg-background h-auto max-h-180 lg:h-[100vh]! relative z-overlay"
       id="contact"
       initial="hidden"
       whileInView="visible"
@@ -69,7 +69,7 @@ export default function Footer() {
       }}
     >
       <motion.div
-        className="bg-background h-full w-full relative z-overlay"
+        className="bg-background h-full w-full"
         variants={parentVariants}
         transition={{
           duration: 0.6,

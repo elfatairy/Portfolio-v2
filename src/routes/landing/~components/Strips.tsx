@@ -7,7 +7,7 @@ export function SocialsStrip() {
   const { isDarkMode } = useTheme()
 
   return (
-    <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-navigation hidden md:flex">
+    <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-elevated hidden md:flex">
       {SOCIALS.map((social) => (
         <motion.a
           key={social.name}
@@ -35,7 +35,7 @@ export function SocialsStrip() {
 
 export function EmailStrip() {
   return (
-    <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-navigation hidden md:flex">
+    <div className="flex-col items-center fixed gap-8 bottom-0 right-10 z-elevated hidden md:flex">
       <motion.a
         href={`mailto:${EMAIL}`}
         target="_blank"
