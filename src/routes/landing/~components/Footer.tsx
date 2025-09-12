@@ -54,7 +54,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-background h-auto xs:h-160 lg:h-[100vh]!"
+      className="bg-background h-auto max-h-180 lg:h-[100vh]!"
       id="contact"
       initial="hidden"
       whileInView="visible"

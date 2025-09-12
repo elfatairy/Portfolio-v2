@@ -135,6 +135,7 @@ input:-webkit-autofill {
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+  --breakpoint-ml: 900px;
   --breakpoint-xs: 480px;
   --breakpoint-2xs: 400px;
   --breakpoint-3xs: 364px;

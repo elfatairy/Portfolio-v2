@@ -39,10 +39,10 @@ export default function Projects() {
   }, [])
 
   return (
-    <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-35 lg:mb-10 pt-15 lg:pt-25" id="projects" ref={ref}>
+    <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-25 lx:mx-35 mb-10 pt-15 lg:pt-25" id="projects" ref={ref}>
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Projects</h2>
 
-      <div className="flex flex-col gap-30 mt-30">
+      <div className="flex flex-col gap-10 md:gap-30 mt-10 md:mt-30">
         {
           projects.map((project) => (
             <Project key={project.name} {...project} />
@@ -55,9 +55,9 @@ export default function Projects() {
 
 function Project({ name, subtitle, description, link, video }: Project) {
   return (
-    <div className="flex flex-row even:flex-row-reverse gap-4" key={name}>
+    <div className="flex flex-col ml:flex-row ml:even:flex-row-reverse gap-4" key={name}>
       <motion.a
-        href={link} target="_blank" rel="noopener noreferrer" className="w-3/4"
+        href={link} target="_blank" rel="noopener noreferrer" className="ml:w-3/4"
         whileHover={{ scale: .95 }}
         whileFocus={{ scale: .95 }}
         whileTap={{ scale: 0.9 }}
@@ -76,10 +76,10 @@ function Project({ name, subtitle, description, link, video }: Project) {
         />
       </motion.a>
       <div key={name} className="">
-        <h3 className="text-3xl font-bold">{name}</h3>
-        <p className="text-3xl font-bold">{subtitle}</p>
-        <p className="text-base pt-6 text-balance max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
-        <div className="flex flex-row gap-2 mt-6">
+        <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
+        <p className="text-2xl lg:text-3xl font-bold">{subtitle}</p>
+        <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
+        <div className="flex flex-row gap-2 mt-3 md:mt-6">
           <Button variant="outline" size="default" asChild>
             <a href={link} target="_blank" rel="noopener noreferrer">
               Case Study
