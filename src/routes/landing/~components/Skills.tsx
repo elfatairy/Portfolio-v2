@@ -88,7 +88,7 @@ export default function Skills() {
 
   return (
     <div
-      className="mx-4 xs:mx-15 md:mx-35 text-foreground mb-15 lg:mb-35 flex gap-8 flex-col justify-center pt-15 lg:pt-25"
+      className="mx-4 xs:mx-15 md:mx-35 text-foreground flex gap-8 flex-col justify-center lg:mb-10 pt-15 lg:pt-25"
       id="skills"
       ref={ref}
     >
