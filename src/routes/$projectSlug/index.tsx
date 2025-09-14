@@ -3,9 +3,10 @@ import { useLoading } from '@/contexts/LoadingContext'
 import { projects } from '@/data/projects'
 import { createFileRoute, Link, redirect } from '@tanstack/react-router'
 import { useEffect } from 'react'
+import { ArrowLeftIcon } from 'lucide-react'
 
 export const Route = createFileRoute('/$projectSlug/')({
-  component: Component,
+  component: Page,
   beforeLoad: ({ params }) => {
     if (!projects.find(project => project.slug === params.projectSlug)) {
       throw redirect({ to: '/landing' })
@@ -13,13 +14,13 @@ export const Route = createFileRoute('/$projectSlug/')({
   }
 })
 
-function Component() {
+function Page() {
   return (
-    <ComponentContent />
+    <PageContent />
   )
 }
 
-function ComponentContent() {
+function PageContent() {
   const { projectSlug } = Route.useParams()
   const { setPageLoaded, setVideosLoaded } = useLoading()
   const project = projects.find(project => project.slug === projectSlug)!
@@ -31,6 +32,10 @@ function ComponentContent() {
 
   return (
     <div className="min-h-dvh p-8 md:p-16">
+      <Link to='/landing' className="flex flex-row items-center mb-8 fixed top-16 left-16 z-navigation">
+        <ArrowLeftIcon className="w-4 h-4 mr-2" />
+        Back to home page
+      </Link>
       <div className="flex flex-col gap-6 justify-center lg:fixed top-0 left-14 right-0 bottom-0 lg:w-1/3">
         <h1 className="text-6xl font-semibold">{project.name}</h1>
         <div className="flex flex-row gap-2">
@@ -40,7 +45,6 @@ function ComponentContent() {
         </div>
         <p className="text-sm text-foreground/90 text-pretty leading-6" dangerouslySetInnerHTML={{ __html: project.longDescription }} />
         <div className="flex flex-row gap-2">
-          <Link to='/landing'>Back</Link>
           <Button variant="outline" size="default" asChild>
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               Try It
