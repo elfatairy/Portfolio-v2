@@ -47,7 +47,7 @@ interface OtherProjectProps extends OtherProject {
   onLoad: (videoSrc: string) => void
 }
 
-function OtherProject({ video, onLoad }: OtherProjectProps) {
+function OtherProject({ name, video, onLoad }: OtherProjectProps) {
   return (
     <video
       src={video}
@@ -58,6 +58,7 @@ function OtherProject({ video, onLoad }: OtherProjectProps) {
       playsInline
       preload="auto"
       onLoadedData={() => onLoad(video)}
+      aria-label={name}
     />
   )
 }

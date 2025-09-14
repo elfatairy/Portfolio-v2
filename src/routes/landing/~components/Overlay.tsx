@@ -52,5 +52,5 @@ function Canvas() {
     c();
   }, [])
 
-  return <canvas id="canvas" className="absolute w-full h-full opacity-20 md:opacity-40" width={32} height={32} />
+  return <canvas aria-hidden id="canvas" className="absolute w-full h-full opacity-20 md:opacity-40" width={32} height={32} />
 }

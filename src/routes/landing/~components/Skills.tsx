@@ -79,7 +79,7 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
       whileTap="tap"
     >
       <div className="w-full h-full flex flex-col gap-4 items-center md:justify-center text-primary">
-        <span className="max-md:mt-14">{icon}</span>
+        <span aria-hidden className="max-md:mt-14">{icon}</span>
         <span className="font-bold text-base xs:text-xl text-center flex md:hidden">{name}</span>
       </div>
       <motion.div

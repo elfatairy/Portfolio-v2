@@ -8,10 +8,10 @@ export const LinkedIn = ({ size = 20 }: { size?: number }) => {
   return (
     <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" width={size} height={size}
       xmlnsXlink="http://www.w3.org/1999/xlink" fill="currentColor">
+      <title>linkedin</title>
       <g strokeWidth="0"></g>
       <g strokeLinecap="round" strokeLinejoin="round"></g>
       <g>
-        <title>linkedin</title>
         <defs> </defs>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g transform="translate(-180.000000, -7479.000000)" fill="currentColor">

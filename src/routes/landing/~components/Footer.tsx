@@ -106,10 +106,7 @@ function FooterContent() {
   return (
     <div className="flex flex-col max-w-200 h-full mx-auto">
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-semibold text-footer-foreground flex flex-col">
-        <span className="">
-          Let's
-          <span className="">{' '} {verbs[0]}</span>
-        </span>
+        <span>Let's make</span>
         <span className="text-footer-foreground/70">something great together.</span>
       </h2>
       <div className="flex flex-col gap-4 h-full">

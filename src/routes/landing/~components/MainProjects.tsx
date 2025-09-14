@@ -30,6 +30,7 @@ function Project({ name, subtitle, description, link, video }: Project) {
         transition={{
           scale: { duration: 0.2 }
         }}
+        aria-label={name + ' Demo'}
       >
         <video
           src={video}

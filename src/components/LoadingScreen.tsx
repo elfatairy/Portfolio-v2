@@ -28,7 +28,7 @@ export default function LoadingScreen() {
 
   useEffect(() => {
     if (!isLoading && !timeoutted) {
-      // hideLoadingScreen()
+      hideLoadingScreen()
     }
   }, [isLoading, timeoutted])
 
