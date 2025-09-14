@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingIndexRouteImport } from './routes/landing/index'
+import { Route as ProjectNameIndexRouteImport } from './routes/$projectName/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +23,39 @@ const LandingIndexRoute = LandingIndexRouteImport.update({
   path: '/landing/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectNameIndexRoute = ProjectNameIndexRouteImport.update({
+  id: '/$projectName/',
+  path: '/$projectName/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$projectName': typeof ProjectNameIndexRoute
   '/landing': typeof LandingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$projectName': typeof ProjectNameIndexRoute
   '/landing': typeof LandingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$projectName/': typeof ProjectNameIndexRoute
   '/landing/': typeof LandingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/landing'
+  fullPaths: '/' | '/$projectName' | '/landing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/landing'
-  id: '__root__' | '/' | '/landing/'
+  to: '/' | '/$projectName' | '/landing'
+  id: '__root__' | '/' | '/$projectName/' | '/landing/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProjectNameIndexRoute: typeof ProjectNameIndexRoute
   LandingIndexRoute: typeof LandingIndexRoute
 }
 
@@ -65,11 +75,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$projectName/': {
+      id: '/$projectName/'
+      path: '/$projectName'
+      fullPath: '/$projectName'
+      preLoaderRoute: typeof ProjectNameIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProjectNameIndexRoute: ProjectNameIndexRoute,
   LandingIndexRoute: LandingIndexRoute,
 }
 export const routeTree = rootRouteImport

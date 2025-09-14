@@ -36,7 +36,7 @@ export default function Header() {
   }, [sectionsEdges])
 
   return (
-    <header className="px-2 flex gap-2 fixed top-4 left-0 right-0 justify-center z-navigation">
+    <header className="px-2 flex gap-2 fixed top-4 left-0 right-0 justify-center z-navigation pointer-events-none">
       <motion.nav
         initial={{ backgroundColor: 'color-mix(in srgb, var(--nav) 0%, transparent)' }}
         animate={{
@@ -44,7 +44,7 @@ export default function Header() {
           backdropFilter: isScrolled ? 'blur(15px)' : 'blur(0px)'
         }}
         transition={{ duration: 0.2 }}
-        className="flex flex-row justify-between items-center p-1.5 xs:p-2.5 rounded-full group"
+        className="flex flex-row justify-between items-center p-1.5 xs:p-2.5 rounded-full group pointer-events-auto"
       >
         <SectionLink section="hero" active={activeSection === 'hero'} />
         <SectionLink section="skills" active={activeSection === 'skills'} />
