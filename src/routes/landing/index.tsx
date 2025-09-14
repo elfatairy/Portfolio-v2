@@ -11,7 +11,7 @@ import { useLoading } from '@/contexts/LoadingContext'
 import { useEffect } from 'react'
 
 export const Route = createFileRoute('/landing/')({
-  component: App,
+  component: App
 })
 
 function App() {

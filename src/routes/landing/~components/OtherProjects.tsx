@@ -56,7 +56,7 @@ function OtherProject({ name, video, onLoad }: OtherProjectProps) {
       autoPlay
       muted
       playsInline
-      preload="auto"
+      preload="metadata"
       onLoadedData={() => onLoad(video)}
       aria-label={name}
     />

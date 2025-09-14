@@ -31,12 +31,11 @@ function Project({ name, subtitle, description, link, video, slug }: Project) {
         transition={{
           scale: { duration: 0.2 }
         }}
-        aria-label={name + ' Demo'}
       >
-        <Link to='/$projectSlug' params={{ projectSlug: slug }}>
+        <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'}>
           <video
             src={video}
-            className="w-full h-auto rounded-lg"
+            className="w-full aspect-video rounded-lg"
             loop
             autoPlay
             muted

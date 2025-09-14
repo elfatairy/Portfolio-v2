@@ -17,5 +17,15 @@ export const otherProjects: OtherProject[] = [
     name: 'rakha',
     video: rakhaVideo,
     type: 'mobile'
-  }
+  },
+  {
+    name: 'Dashboardy1',
+    video: dashboardyVideo,
+    type: 'web'
+  },
+  {
+    name: 'rakha1',
+    video: rakhaVideo,
+    type: 'mobile'
+  },
 ]

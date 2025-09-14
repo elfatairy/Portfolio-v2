@@ -40,6 +40,7 @@ function ComponentContent() {
         </div>
         <p className="text-sm text-foreground/90 text-pretty leading-6" dangerouslySetInnerHTML={{ __html: project.longDescription }} />
         <div className="flex flex-row gap-2">
+          <Link to='/landing'>Back</Link>
           <Button variant="outline" size="default" asChild>
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               Try It
