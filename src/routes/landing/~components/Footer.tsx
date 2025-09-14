@@ -95,12 +95,12 @@ export default function Footer() {
   )
 }
 
-const verbs = [
-  'make',
-  'build',
-  'create',
-  'develop',
-]
+// const verbs = [
+//   'make',
+//   'build',
+//   'create',
+//   'develop',
+// ]
 
 function FooterContent() {
   return (

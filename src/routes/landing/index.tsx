@@ -7,8 +7,7 @@ import { SectionsProvider } from './~hooks/useSections'
 import { EmailStrip, SocialsStrip } from './~components/Strips'
 import SkipToContentBtn from './~components/SkipToContentBtn'
 import Footer from './~components/Footer'
-import { LoadingProvider, useLoading } from '@/contexts/LoadingContext'
-import LoadingScreen from '@/components/LoadingScreen'
+import { useLoading } from '@/contexts/LoadingContext'
 import { useEffect } from 'react'
 
 export const Route = createFileRoute('/landing/')({
@@ -17,10 +16,7 @@ export const Route = createFileRoute('/landing/')({
 
 function App() {
   return (
-    <LoadingProvider>
-      <LoadingScreen />
-      <AppContent />
-    </LoadingProvider>
+    <AppContent />
   )
 }
 

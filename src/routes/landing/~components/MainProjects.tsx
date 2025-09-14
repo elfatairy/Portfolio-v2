@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
+import { Link } from "@tanstack/react-router";
 
 
 export default function MainProjects() {
@@ -19,11 +20,11 @@ export default function MainProjects() {
   )
 }
 
-function Project({ name, subtitle, description, link, video }: Project) {
+function Project({ name, subtitle, description, link, video, slug }: Project) {
   return (
     <div className="flex flex-col ml:flex-row ml:even:flex-row-reverse gap-4" key={name}>
-      <motion.a
-        href={link} target="_blank" rel="noopener noreferrer" className="ml:w-3/4"
+      <motion.div
+        className="ml:w-3/4"
         whileHover={{ scale: .95 }}
         whileFocus={{ scale: .95 }}
         whileTap={{ scale: 0.9 }}
@@ -32,29 +33,31 @@ function Project({ name, subtitle, description, link, video }: Project) {
         }}
         aria-label={name + ' Demo'}
       >
-        <video
-          src={video}
-          className="w-full h-auto rounded-lg"
-          loop
-          autoPlay
-          muted
-          playsInline
-          preload="metadata"
-        />
-      </motion.a>
+        <Link to='/$projectSlug' params={{ projectSlug: slug }}>
+          <video
+            src={video}
+            className="w-full h-auto rounded-lg"
+            loop
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+          />
+        </Link>
+      </motion.div>
       <div key={name} className="">
         <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
         <p className="text-2xl lg:text-3xl font-bold">{subtitle}</p>
         <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
         <div className="flex flex-row gap-2 mt-3 md:mt-6">
           <Button variant="outline" size="default" asChild>
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <Link to='/$projectSlug' params={{ projectSlug: slug }}>
               Case Study
-            </a>
+            </Link>
           </Button>
           <Button variant="outline" size="default" asChild>
             <a href={link} target="_blank" rel="noopener noreferrer">
-              View Demo
+              Try It
             </a>
           </Button>
         </div>
