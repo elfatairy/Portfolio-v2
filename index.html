@@ -9,8 +9,50 @@
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <title>Omar Hassan · Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+          'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #static-loading {
+        background-color: #003249;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        height: 100vh;
+        width: 100vw;
+      }
+      #static-loading-text {
+        display: flex;
+        gap: 14px;
+        color: #9ad1d4;
+        font-size: 28px;
+      }
+      #static-loading-text-name {
+        font-weight: 500;
+      }
+      #static-loading-text-portfolio {
+        font-weight: 300;
+      }
+    </style>
   </head>
   <body>
+    <div id="static-loading">
+      <div id="static-loading-text">
+        <span id="static-loading-text-name">Omar Hassan</span>
+        <span id="static-loading-text-portfolio">Portfolio</span>
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -12,7 +12,6 @@ export default function OtherProjects() {
 
   useEffect(() => {
     const firstPosition = -width / 2 - 8;
-    console.log(width)
     const controls = animate(xTrans, [0, firstPosition], {
       ease: "linear",
       duration: width / 270,
