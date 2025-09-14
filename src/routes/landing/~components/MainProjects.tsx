@@ -9,7 +9,7 @@ export default function MainProjects() {
     <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-25 lx:mx-35 mb-10 pt-15 lg:pt-25" id="projects">
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Projects</h2>
 
-      <div className="flex flex-col gap-10 md:gap-30 mt-10 md:mt-30">
+      <div className="flex flex-col gap-16 md:gap-30 mt-10 md:mt-30">
         {
           projects.map((project) => (
             <Project key={project.name} {...project} />

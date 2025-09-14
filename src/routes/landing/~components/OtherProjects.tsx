@@ -12,9 +12,10 @@ export default function OtherProjects() {
 
   useEffect(() => {
     const firstPosition = -width / 2 - 8;
+    console.log(((window.innerWidth / 1536 - 1) * 0.8 + 1))
     const controls = animate(xTrans, [0, firstPosition], {
       ease: "linear",
-      duration: width / 270,
+      duration: width / 270 * ((1536 / window.innerWidth - 1) * 0.2 + 1),
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
@@ -23,7 +24,7 @@ export default function OtherProjects() {
   }, [xTrans, width]);
 
   return (
-    <div className="text-foreground justify-center flex flex-col pt-15 lg:pt-25">
+    <div className="text-foreground justify-center flex flex-col pt-10 lg:pt-25">
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center mb-10">Other Projects</h2>
 
       <div className="flex max-w-screen flex-col items-center overflow-hidden relative bg-background z-elevated-2 pb-10">

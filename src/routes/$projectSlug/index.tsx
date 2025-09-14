@@ -31,13 +31,13 @@ function PageContent() {
   }, [])
 
   return (
-    <div className="min-h-dvh p-8 md:p-16">
-      <Link to='/landing' className="flex flex-row items-center mb-8 fixed top-16 left-16 z-navigation">
+    <div className="min-h-dvh p-4 md:p-16">
+      <Link to='/landing' className="flex flex-row items-center mb-8 lg:fixed top-16 left-16 z-navigation">
         <ArrowLeftIcon className="w-4 h-4 mr-2" />
         Back to home page
       </Link>
       <div className="flex flex-col gap-6 justify-center lg:fixed top-0 left-14 right-0 bottom-0 lg:w-1/3">
-        <h1 className="text-6xl font-semibold">{project.name}</h1>
+        <h1 className="text-4xl md:text-6xl font-semibold">{project.name}</h1>
         <div className="flex flex-row gap-2">
           {project.skills.map((skill) => (
             <div key={skill} className="text-sm text-foreground border border-foreground rounded-full px-2 py-1 font-[400]">{skill}</div>
