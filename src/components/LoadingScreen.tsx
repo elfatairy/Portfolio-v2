@@ -10,6 +10,16 @@ export default function LoadingScreen() {
     document.getElementById('static-loading-text-portfolio')?.classList.add('opacity-0', 'transition-opacity', 'duration-500', 'delay-200')
     setTimeout(() => {
       document.getElementById('static-loading')?.classList.add('opacity-0', 'transition-opacity', 'duration-300')
+      const style = document.createElement('style');
+      style.innerHTML = `
+        ::-webkit-scrollbar-track {
+          background: transparent !important;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: var(--color-primary) !important;
+        }
+      `;
+      document.head.appendChild(style);
       setTimeout(() => {
         document.getElementById('static-loading')?.remove()
       }, 300)
