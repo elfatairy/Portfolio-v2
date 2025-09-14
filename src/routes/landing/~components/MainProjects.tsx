@@ -1,21 +1,11 @@
-import { useSections } from "../~hooks/useSections";
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
 
 
-export default function Projects() {
-  const { updateSection } = useSections()
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    if (!ref.current) return
-    updateSection('projects', ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight)
-  }, [])
-
+export default function MainProjects() {
   return (
-    <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-25 lx:mx-35 mb-10 pt-15 lg:pt-25" id="projects" ref={ref}>
+    <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-25 lx:mx-35 mb-10 pt-15 lg:pt-25" id="projects">
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Projects</h2>
 
       <div className="flex flex-col gap-10 md:gap-30 mt-10 md:mt-30">

@@ -1,18 +1,11 @@
 import { otherProjects, type OtherProject } from "@/data/otherProjects";
 import { animate, motion, useMotionValue } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import useMeasure from "react-use-measure";
-import { useSections } from "../~hooks/useSections";
+import { useVideosLoading } from "@/hooks/useVideosLoading";
 
 export default function OtherProjects() {
-  const { updateSection } = useSections()
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    if (!ref.current) return
-    updateSection('projects', ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight)
-  }, [])
-
+  const { handleVideoLoad } = useVideosLoading()
   const [carouselRef, { width }] = useMeasure();
 
   const xTrans = useMotionValue(0);
@@ -31,7 +24,7 @@ export default function OtherProjects() {
   }, [xTrans, width]);
 
   return (
-    <div className="text-foreground justify-center flex flex-col pt-15 lg:pt-25" ref={ref}>
+    <div className="text-foreground justify-center flex flex-col pt-15 lg:pt-25">
       <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center mb-10">Other Projects</h2>
 
       <div className="flex max-w-screen flex-col items-center overflow-hidden relative bg-background z-elevated-2 pb-10">
@@ -42,7 +35,7 @@ export default function OtherProjects() {
         >
           {
             [...otherProjects, ...otherProjects].map((project, index) => (
-              <OtherProject key={index} {...project} />
+              <OtherProject key={index} {...project} onLoad={handleVideoLoad} />
             ))
           }
         </motion.div>
@@ -51,7 +44,11 @@ export default function OtherProjects() {
   )
 }
 
-function OtherProject({ video, type }: OtherProject) {
+interface OtherProjectProps extends OtherProject {
+  onLoad: (videoSrc: string) => void
+}
+
+function OtherProject({ video, onLoad }: OtherProjectProps) {
   return (
     <video
       src={video}
@@ -60,7 +57,8 @@ function OtherProject({ video, type }: OtherProject) {
       autoPlay
       muted
       playsInline
-      preload="metadata"
+      preload="auto"
+      onLoadedData={() => onLoad(video)}
     />
   )
 }

@@ -7,12 +7,15 @@ import { useState } from "react"
 import { EMAIL } from "@/utils/contants"
 import { useTheme } from "@/contexts/ThemeContext"
 import { SOCIALS } from "@/utils/socials"
+import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions"
 
 const footerPadding = 16
 const footerContentHorizontalPadding = window.innerWidth > 640 ? 100 : 20
 const footerContentVerticalPadding = window.innerWidth > 480 ? 60 : 30
 
 export default function Footer() {
+  const { ref } = useUpdateSectionDimensions('contact')
+
   const grandParentVariants = {
     hidden: {
       paddingTop: '0',
@@ -56,6 +59,7 @@ export default function Footer() {
     <motion.footer
       className="bg-background h-auto max-h-180 lg:h-[100vh]! relative z-overlay"
       id="contact"
+      ref={ref}
       initial="hidden"
       whileInView="visible"
       variants={grandParentVariants}

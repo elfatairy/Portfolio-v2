@@ -1,16 +1,9 @@
-import { useSections } from "../~hooks/useSections";
 import Overlay from "./Overlay";
-import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions";
 
 export default function Hero() {
-  const { updateSection } = useSections()
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    if (!ref.current) return
-    updateSection('hero', ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight)
-  }, [])
+  const { ref } = useUpdateSectionDimensions('hero')
 
   return (
     <div id="hero" className="relative flex flex-col items-center" ref={ref}>
