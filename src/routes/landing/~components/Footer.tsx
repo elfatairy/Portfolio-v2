@@ -147,7 +147,7 @@ function FooterForm() {
           <Input
             type='text'
             autoComplete='name'
-            placeholder="What should we call you?"
+            placeholder="What should I call you?"
             className="flex-1"
             value={name}
             onChange={(e) => setName(e.target.value)}
