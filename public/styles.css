@@ -1,0 +1,170 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px var(--footer-background) inset !important;
+  -webkit-text-fill-color: var(--footer-foreground) !important;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  border: 0px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  /* background: transparent; */
+  background: #003249;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  /* background: var(--color-primary); */
+  background: #003249
+}
+
+:root {
+  --background-gradient: linear-gradient(
+    to bottom,
+    oklch(0.8804 0.0162 201.68 / 0) 0%,
+    oklch(0.8804 0.0162 201.68 / 0.013) 9.7%,
+    oklch(0.8804 0.0162 201.68 / 0.049) 18.1%,
+    oklch(0.8804 0.0162 201.68 / 0.104) 25.5%,
+    oklch(0.8804 0.0162 201.68 / 0.175) 31.9%,
+    oklch(0.8804 0.0162 201.68 / 0.259) 37.7%,
+    oklch(0.8804 0.0162 201.68 / 0.352) 43%,
+    oklch(0.8804 0.0162 201.68 / 0.45) 47.9%,
+    oklch(0.8804 0.0162 201.68 / 0.55) 52.8%,
+    oklch(0.8804 0.0162 201.68 / 0.648) 57.7%,
+    oklch(0.8804 0.0162 201.68 / 0.741) 63%,
+    oklch(0.8804 0.0162 201.68 / 0.825) 68.7%,
+    oklch(0.8804 0.0162 201.68 / 0.896) 75%,
+    oklch(0.8804 0.0162 201.68 / 0.951) 82.2%,
+    oklch(0.8804 0.0162 201.68 / 0.987) 90.5%,
+    oklch(0.8804 0.0162 201.68 / 1) 100%
+  );
+
+
+  --background: #ccdbdc;
+  --foreground: #004D66;
+  
+  --primary: #004D66;
+  --primary-foreground: #9AD1D4;
+
+  --ring: #004D66;
+  --border: #004D66;
+  
+  --nav: #9AD1D4;
+  --nav-foreground: #004D66;
+  --nav-active: #004D6624;
+
+  --footer-background: #004D66;
+  --footer-foreground: #9AD1D4;
+}
+
+.dark {
+  --background-gradient: linear-gradient(
+    to bottom,
+    oklch(0.2996 0.0639 235.39 / 0) 0%,
+    oklch(0.2996 0.0639 235.39 / 0.013) 9.7%,
+    oklch(0.2996 0.0639 235.39 / 0.049) 18.1%,
+    oklch(0.2996 0.0639 235.39 / 0.104) 25.5%,
+    oklch(0.2996 0.0639 235.39 / 0.175) 31.9%,
+    oklch(0.2996 0.0639 235.39 / 0.259) 37.7%,
+    oklch(0.2996 0.0639 235.39 / 0.352) 43%,
+    oklch(0.2996 0.0639 235.39 / 0.45) 47.9%,
+    oklch(0.2996 0.0639 235.39 / 0.55) 52.8%,
+    oklch(0.2996 0.0639 235.39 / 0.648) 57.7%,
+    oklch(0.2996 0.0639 235.39 / 0.741) 63%,
+    oklch(0.2996 0.0639 235.39 / 0.825) 68.7%,
+    oklch(0.2996 0.0639 235.39 / 0.896) 75%,
+    oklch(0.2996 0.0639 235.39 / 0.951) 82.2%,
+    oklch(0.2996 0.0639 235.39 / 0.987) 90.5%,
+    oklch(0.2996 0.0639 235.39 / 1) 100%
+    );
+  --background: #003249;
+  --foreground: #9ad1d4;
+
+  --ring: #80ced7;
+  --border: oklch(0.274 0.006 286.033);
+  
+  --nav: #004D66;
+  --nav-foreground: #ccdbdc;
+  --nav-active: #ccdbdc24;
+  
+  --primary: #9ad1d4;
+  --primary-foreground: #004666;
+
+  --footer-background: #004666;
+  --footer-foreground: #9ad1d4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --color-nav: var(--nav);
+  --color-nav-foreground: var(--nav-foreground);
+  --color-nav-active: var(--nav-active);
+
+  --color-footer-background: var(--footer-background);
+  --color-footer-foreground: var(--footer-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --breakpoint-ml: 900px;
+  --breakpoint-xs: 480px;
+  --breakpoint-2xs: 400px;
+  --breakpoint-3xs: 364px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 outline-offset-2;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .z-background {
+    z-index: -1;
+  }
+  .z-base {
+    z-index: 1;
+  }
+  .z-elevated {
+    z-index: 10;
+  }
+  .z-elevated-2 {
+    z-index: 11;
+  }
+  .z-navigation {
+    z-index: 20;
+  }
+  .z-overlay {
+    z-index: 30;
+  }
+  .z-overlay-elevated {
+    z-index: 30;
+  }
+  .z-toast {
+    z-index: 40;
+  }
+}
