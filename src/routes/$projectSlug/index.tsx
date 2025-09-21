@@ -2,8 +2,9 @@ import { Button } from '@/components/ui/button'
 import { useLoading } from '@/contexts/LoadingContext'
 import { projects } from '@/data/projects'
 import { createFileRoute, Link, redirect } from '@tanstack/react-router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowLeftIcon } from 'lucide-react'
+import Markdown from '@/components/ui/markdown'
 
 export const Route = createFileRoute('/$projectSlug/')({
   component: Page,
@@ -24,6 +25,23 @@ function PageContent() {
   const { projectSlug } = Route.useParams()
   const { setPageLoaded, setVideosLoaded } = useLoading()
   const project = projects.find(project => project.slug === projectSlug)!
+  const [showcase, setShowcase] = useState<string>()
+
+  useEffect(() => {
+    const loadMarkdown = async () => {
+      try {
+        // Dynamic import of markdown files
+        const markdownModule = await import(`../../assets/showcases/${projectSlug}.md?raw`);
+        setShowcase(markdownModule.default);
+      } catch (error) {
+        console.error('Error loading markdown content:', error);
+        setShowcase(''); // Set empty string if file not found
+      }
+    };
+
+    loadMarkdown();
+  }, [projectSlug])
+
 
   useEffect(() => {
     setPageLoaded()
@@ -57,8 +75,9 @@ function PageContent() {
           </Button>
         </div>
       </div>
-      <div className="lg:ml-auto lg:w-1/2 py-10 flex flex-col items-center min-h-dvh">
-        <video src={project.video} autoPlay loop muted playsInline preload="metadata" />
+      <div className="lg:ml-auto lg:w-1/2 py-10">
+        {/* <video src={project.video} autoPlay loop muted playsInline preload="metadata" /> */}
+        <Markdown>{showcase ?? ''}</Markdown>
       </div>
     </div>
   )
