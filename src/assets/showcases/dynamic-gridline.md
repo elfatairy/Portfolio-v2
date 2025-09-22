@@ -2,11 +2,11 @@
 
 ## The Problem
 
-While working on [**IdeaWall**](/idea-wall)—a collaborative environment where users could add sticky notes and react to others' notes—I needed something like a digital whiteboard to be its background. Specifically, I wanted a grid system similar to those found in design applications like Figma or Sketch. The goal was simple: create a background grid where users could place and position sticky notes with precision and intuitive navigation in a collaborative space.
+While working on [**IdeaWall**](/ideawall)—a collaborative environment where users could add sticky notes and react to others' notes—I needed something like a digital whiteboard to be its background. Specifically, I wanted a grid system similar to those found in design applications like Figma or Sketch. The goal was simple: create a background grid where users could place and position sticky notes with precision and intuitive navigation in a collaborative space.
 
 I spent considerable time searching through existing packages and solutions, but nothing quite fit my specific use case. The available options were either too basic, overly complex, or didn't provide the smooth, design-tool-like experience I was after. That's when I made the decision that would lead to an entirely new learning journey: **I'll just build it myself.**
 
-<!-- Image: Screenshot of IdeaWall showing collaborative sticky notes on a grid system -->
+![Idea Wall](/public/images/dynamic-gridline/ideawall.png)
 
 ## My Role and Development Process
 
@@ -18,9 +18,8 @@ As a solo developer on this project, I handled everything—from initial problem
 
 **The Performance Foresight**: While my CSS-based approach worked initially, I quickly realized it wouldn't scale. In a collaborative environment like IdeaWall, imagine dozens of sticky notes that all need to be repositioned and scaled with every grid movement—each triggering state updates and re-renders. I didn't wait to experience the performance issues; I proactively recognized that this approach would create problems as the application grew. This was my first major learning moment—sometimes you need to think ahead and choose the right solution before problems manifest.
 
-<!-- Image: Side-by-side comparison showing janky CSS animations vs smooth Framer Motion animations -->
 
-**The Pivot to Framer Motion**: After researching performance-optimized animation libraries, I discovered Framer Motion (now Motion.dev). What made it perfect for my use case was its hybrid approach—combining CSS animations with JavaScript's `requestAnimationFrame` to efficiently animate between states without triggering React re-renders.
+**The Pivot to Framer Motion**: After researching performance-optimized animation libraries, I chose Framer Motion (now Motion.dev). What made it perfect for my use case was its hybrid approach—combining CSS animations with JavaScript's `requestAnimationFrame` to efficiently animate between states without triggering React re-renders.
 
 ## Technology Stack
 
@@ -85,40 +84,6 @@ This configuration automatically handled CSS bundling and importing, ensuring th
 This required significant refactoring, but it transformed a project-specific solution into a flexible, reusable package.
 
 ![Dynamic Gridline configuration interface](/images/dynamic-gridline/interface.png)
-
-## What I Learned
-
-Building Dynamic Gridline was far more than just creating a grid component—it was a comprehensive learning experience that expanded my skills across multiple domains:
-
-### Technical Skills
-- **Performance Optimization**: Understanding when and why to choose animation libraries over basic CSS
-- **Package Development**: The entire lifecycle from code to npm publication
-- **Build Tools**: Deep dive into modern bundling with TSUP and handling CSS in packages
-- **Monorepo Management**: Using PNPM workspaces for efficient package development
-- **API Design**: Creating intuitive, flexible interfaces that balance power with simplicity
-
-### Problem-Solving Approaches
-- **Research Methodology**: How to effectively investigate technical problems using documentation, Stack Overflow, and community resources
-- **Iterative Development**: The importance of building, testing, failing, and rebuilding
-- **Performance Debugging**: Identifying bottlenecks in React applications and choosing appropriate solutions
-
-### Software Architecture
-- **Compound Components**: Implementing elegant parent-child communication patterns
-- **Context API**: Strategic use of React Context for state sharing
-- **TypeScript Interface Design**: Creating type-safe, developer-friendly APIs
-- **Configuration Management**: Balancing flexibility with ease of use
-
-### Project Management
-- **Scope Evolution**: How a simple internal tool evolved into a published package
-- **Documentation**: Writing clear, comprehensive documentation for external users
-- **Version Control**: Managing package versions and breaking changes
-
-### Personal Growth
-- **Persistence**: Pushing through frustrating build configuration issues
-- **Community Contribution**: The satisfaction of creating something that others can use
-- **Learning Mindset**: Embracing unfamiliar territories like package publishing
-
-The journey from "I need a grid system" to "I've published an npm package" taught me that some of the most valuable learning happens when you step outside your comfort zone and tackle problems you've never faced before.
 
 ## The Impact
 

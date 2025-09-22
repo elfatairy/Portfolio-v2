@@ -71,15 +71,36 @@ export default function Markdown({ children }: { children: string }) {
               {children}
             </a>
           ),
-          img: ({ src, alt }) => (
-            <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-border">
-              <img
-                src={src}
-                alt={alt}
-                className="w-full h-auto"
-              />
-            </div>
-          ),
+          img: ({ src, alt }) => {
+            // Check if the src is a video file
+            if (src?.endsWith('.mp4') || src?.endsWith('.webm') || src?.endsWith('.ogg')) {
+              return (
+                <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-border">
+                  <video
+                    src={src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto"
+                    preload="metadata"
+                  >
+                    {alt}
+                  </video>
+                </div>
+              )
+            }
+
+            return (
+              <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-border">
+                <img
+                  src={src}
+                  alt={alt}
+                  className="w-full h-auto"
+                />
+              </div>
+            )
+          },
           code: ({ children, className }) => {
             const match = /language-(\w+)/.exec(className || '')
             const language = match ? match[1] : ''

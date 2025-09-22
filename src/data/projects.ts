@@ -1,5 +1,6 @@
 import dashboardyVideo from "@/assets/demos/dashboardy.mp4";
 import dynamicGridlineVideo from "@/assets/demos/dynamic-gridline.mp4";
+import ideawallVideo from "@/assets/demos/ideawall.mp4";
 
 export interface Project {
   slug: string;
@@ -39,5 +40,31 @@ export const projects: Project[] = [
     link: "https://www.npmjs.com/package/dynamic-gridline",
     github: "https://github.com/elfatairy/dynamic-gridline",
     video: dynamicGridlineVideo,
+  },
+  {
+    slug: "ideawall",
+    name: "Idea Wall",
+    subtitle: "Note Taking App",
+    description:
+      "Real-time collaborative whiteboard where users create, react to, and share sticky notes together.",
+    longDescription: `IdeaWall is an interactive online workspace for team brainstorming and collaboration. Multiple users can work together in real-time on a virtual whiteboard, seeing each other's mouse movements as they collaborate.
+      <br /><br />
+      Key Features: <br />
+      - Digital Sticky Notes: Create colorful notes (22 colors available) anywhere on the unlimited canvas <br />
+      - Real-Time Reactions: React to teammates' ideas with emojis (👍❤️😂😢😊👎) <br />
+      - Live Collaboration: See other users' cursors and changes instantly <br />
+      - Flexible Navigation: Pan, zoom, and navigate the large workspace easily <br />
+      - User Profiles: Personalized avatars <br />
+      - Perfect for brainstorming, project planning, retrospectives, and team workshops. No training needed - just join and start collaborating!`,
+    skills: [
+      "React",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Playwright",
+    ],
+    link: "https://ideawall.omarhassan.net",
+    github: "https://github.com/elfatairy/ideawall",
+    video: ideawallVideo,
   },
 ];
