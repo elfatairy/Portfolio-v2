@@ -20,36 +20,38 @@ function Canvas() {
     const context = canvas.getContext('2d') as CanvasRenderingContext2D
     if (!context) return
 
-    let u = 0;
-    const h = function (b: number, M: number, B: number, z: number, k: number) {
-      (context.fillStyle = `rgb(${B}, ${z}, ${k})`), context.fillRect(b, M, 5, 5);
+    let time = 0;
+    const h = function (x: number, y: number, red: number, green: number, blue: number) {
+      (context.fillStyle = `rgb(${red}, ${green}, ${blue})`), context.fillRect(x, y, 5, 5);
     };
-    const C = function (b: number, M: number, B: number) {
-      return Math.floor(150 + 64 * Math.cos((b * b - M * M) / 300 + B));
+    const redValue = function (x: number, y: number, time: number) {
+      return Math.floor(150 + 64 * Math.cos((x * x - y * y) / 300 + time));
     };
-    const w = function (b: number, M: number, B: number) {
+    const greenValue = function (x: number, y: number, time: number) {
       return Math.floor(
         200 +
-        64 * Math.sin((b * b * Math.cos(B / 4) + M * M * Math.sin(B / 3)) / 300)
+        64 * Math.sin((x * x * Math.cos(time / 4) + y * y * Math.sin(time / 3)) / 300)
       );
     };
-    const p = function (b: number, M: number, B: number) {
+    const blueValue = function (x: number, y: number, time: number) {
       return Math.floor(
         100 +
         64 *
         Math.sin(
-          5 * Math.sin(B / 9) +
-          ((b - 100) * (b - 100) + (M - 100) * (M - 100)) / 1100
+          5 * Math.sin(time / 9) +
+          ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
         )
       );
     };
-    const c = function () {
-      let b: number, M: number;
-      for (b = 0; b <= 30; b++)
-        for (M = 0; M <= 30; M++) h(b, M, C(b, M, u), w(b, M, u), p(b, M, u));
-      (u = u + 0.025), window.requestAnimationFrame(c);
+    const animate = function () {
+      let x: number, y: number;
+      for (x = 0; x <= 30; x++)
+        for (y = 0; y <= 30; y++) h(x, y, redValue(x, y, time), greenValue(x, y, time), blueValue(x, y, time));
+
+      time += 0.025;
+      window.requestAnimationFrame(animate);
     };
-    c();
+    animate();
   }, [])
 
   return <canvas aria-hidden id="canvas" className="absolute w-full h-full opacity-20 md:opacity-40" width={32} height={32} />
