@@ -1,31 +1,39 @@
 import dashboardyVideo from "@/assets/demos/dashboardy.mp4";
-import rakhaVideo from "@/assets/demos/mobile1.mp4";
+import containmentVideo from "@/assets/demos/containmentVideo.mov";
+import laundrygoVideo from "@/assets/demos/laundrygo.mp4";
+import fruitstoreVideo from "@/assets/demos/fruitstore.mp4";
+import learncoroporateVideo from "@/assets/demos/learncoroporate.mp4";
 
 export interface OtherProject {
   name: string;
   video: string;
-  type: 'mobile' | 'web'
+  type: "mobile" | "web";
 }
 
 export const otherProjects: OtherProject[] = [
   {
-    name: 'Dashboardy',
+    name: "Dashboardy",
     video: dashboardyVideo,
-    type: 'web'
+    type: "web",
   },
   {
-    name: 'rakha',
-    video: rakhaVideo,
-    type: 'mobile'
+    name: "Containment",
+    video: containmentVideo,
+    type: "mobile",
   },
   {
-    name: 'Dashboardy1',
-    video: dashboardyVideo,
-    type: 'web'
+    name: "Laundrygo",
+    video: laundrygoVideo,
+    type: "web",
   },
   {
-    name: 'rakha1',
-    video: rakhaVideo,
-    type: 'mobile'
+    name: "fruitstore",
+    video: fruitstoreVideo,
+    type: "web",
   },
-]
+  {
+    name: "learncoroporate",
+    video: learncoroporateVideo,
+    type: "web",
+  },
+];

@@ -1,5 +1,5 @@
 import MainProjects from "./MainProjects";
-// import OtherProjects from "./OtherProjects";
+import OtherProjects from "./OtherProjects";
 import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions";
 
 
@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <div id="projects" ref={ref}>
       <MainProjects />
-      {/* <OtherProjects /> */}
+      <OtherProjects />
     </div>
   )
 }
