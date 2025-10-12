@@ -46,7 +46,7 @@ function Project({ name, subtitle, description, link, video, slug }: Project) {
       </motion.div>
       <div key={name} className="">
         <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
-        <p className="text-2xl lg:text-3xl font-bold">{subtitle}</p>
+        <p className="text-2xl lg:text-3xl text-foreground/60 font-bold">{subtitle}</p>
         <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
         <div className="flex flex-row gap-2 mt-3 md:mt-6">
           <Button variant="outline" size="default" asChild>

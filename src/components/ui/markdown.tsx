@@ -56,8 +56,7 @@ export default function Markdown({ children }: { children: string }) {
             </ol>
           ),
           li: ({ children }) => (
-            <li className="text-base leading-7 text-foreground/90 relative pl-2">
-              <span className="absolute -left-2 top-2 w-1.5 h-1.5 bg-primary rounded-full"></span>
+            <li className="text-base leading-5 text-foreground/90 relative pl-2  marker:hidden">
               {children}
             </li>
           ),
@@ -72,33 +71,28 @@ export default function Markdown({ children }: { children: string }) {
             </a>
           ),
           img: ({ src, alt }) => {
-            // Check if the src is a video file
             if (src?.endsWith('.mp4') || src?.endsWith('.webm') || src?.endsWith('.ogg')) {
               return (
-                <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-border">
-                  <video
-                    src={src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto"
-                    preload="metadata"
-                  >
-                    {alt}
-                  </video>
-                </div>
+                <video
+                  src={src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto my-8 rounded-lg overflow-hidden shadow-lg border border-border"
+                  preload="metadata"
+                >
+                  {alt}
+                </video>
               )
             }
 
             return (
-              <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-border">
-                <img
-                  src={src}
-                  alt={alt}
-                  className="w-full h-auto"
-                />
-              </div>
+              <img
+                src={src}
+                alt={alt}
+                className="w-full h-auto my-8 rounded-lg overflow-hidden shadow-lg border border-border"
+              />
             )
           },
           code: ({ children, className }) => {
@@ -145,7 +139,7 @@ export default function Markdown({ children }: { children: string }) {
             )
           },
           blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-primary bg-primary/5 pl-6 py-4 my-6 italic text-foreground/90 rounded-r-lg">
+            <blockquote className="border-l-4 border-primary bg-primary/5 pl-6 py-4 my-6 italic text-foreground/90 rounded-r-lg [&>p:last-child]:mb-0">
               {children}
             </blockquote>
           ),

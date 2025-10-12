@@ -1,6 +1,6 @@
-import dashboardyVideo from "@/assets/demos/dashboardy.mp4";
 import dynamicGridlineVideo from "@/assets/demos/dynamic-gridline.mp4";
 import ideawallVideo from "@/assets/demos/ideawall.mp4";
+import taskaVideo from "@/assets/demos/taska.mp4";
 
 export interface Project {
   slug: string;
@@ -15,18 +15,37 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // {
+  //   slug: "dashboardy",
+  //   name: "Dashboardy",
+  //   subtitle: "Management App",
+  //   description:
+  //     'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
+  //   longDescription:
+  //     'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
+  //   skills: ["Vanilla JavaScript", "TypeScript", "Playwright"],
+  //   link: "https://dashboardy.omarhassan.net",
+  //   github: "https://github.com/elfatairy/dashboardy",
+  //   video: dashboardyVideo,
+  // },
   {
-    slug: "dashboardy",
-    name: "Dashboardy",
-    subtitle: "Management App",
+    slug: "taska",
+    name: "Taska",
+    subtitle: "Work Management App",
     description:
-      'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
+      "A work management application that helps teams organize their work, track projects and sprints, and monitor the status of all tasks using visual boards.",
     longDescription:
-      'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
-    skills: ["Vanilla JavaScript", "TypeScript", "Playwright"],
-    link: "https://dashboardy.omarhassan.net",
-    github: "https://github.com/elfatairy/dashboardy",
-    video: dashboardyVideo,
+      "A work management application with role-based team management (CTO, PM, Frontend/Backend Developers, Designer, etc..). CTOs create projects and assign PMs, who then manage teams, create sprints, and monitor progress. Team members can track tasks, indicate completion levels, and report blockers. Features include in-app chat, notifications, calendar-based project tracking, and Kanban boards for visual task management.",
+    skills: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Router",
+      "React Query",
+    ],
+    link: "https://taska.omarhassan.net",
+    github: "https://github.com/elfatairy/taska",
+    video: taskaVideo,
   },
   {
     slug: "dynamic-gridline",
