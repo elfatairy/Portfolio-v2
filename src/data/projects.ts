@@ -14,6 +14,7 @@ export interface Project {
   link: string;
   video: string;
   github?: string;
+  workExperience?: boolean;
 }
 
 export const projects: Project[] = [
@@ -49,6 +50,7 @@ export const projects: Project[] = [
       "React Router",
       "React Query",
     ],
+    workExperience: true,
     link: "https://apps.apple.com/eg/app/info-tik/id6740635815 ",
     video: infotikVideo,
   },

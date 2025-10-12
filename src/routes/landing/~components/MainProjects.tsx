@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { projects, type Project } from "@/data/projects";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
@@ -21,11 +22,11 @@ export default function MainProjects() {
   )
 }
 
-function Project({ name, subtitle, description, link, video, slug, type }: Project) {
+function Project({ name, subtitle, description, link, video, slug, type, workExperience }: Project) {
   return (
     <div className="flex flex-col ml:flex-row ml:even:flex-row-reverse gap-4" key={name}>
       <motion.div
-        className={cn(type === "mobile" ? "w-1/2" : "w-3/4")}
+        className={cn(type === "mobile" ? "w-1/2" : "w-3/4", "group")}
         whileHover={{ scale: .95 }}
         whileFocus={{ scale: .95 }}
         whileTap={{ scale: 0.9 }}
@@ -34,19 +35,31 @@ function Project({ name, subtitle, description, link, video, slug, type }: Proje
         }}
       >
         <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'} className="flex justify-end mr-10">
-          <video
-            src={video}
-            className={cn(type === "mobile" ? "aspect-6/13 w-4/10" : "aspect-video", "rounded-lg")}
-            loop
-            autoPlay
-            muted
-            playsInline
-            preload="metadata"
-          />
+          <div className={cn("relative overflow-hidden", type === "mobile" && "w-4/10")}>
+            <video
+              src={video}
+              className={cn(type === "mobile" ? "aspect-6/13" : "aspect-video", "rounded-lg")}
+              loop
+              autoPlay
+              muted
+              playsInline
+              preload="metadata"
+            />
+            {workExperience && (
+              <Badge
+                className="absolute top-8 -left-12 px-10 rotate-[-45deg] group-hover:opacity-0 transition-opacity duration-200"
+                variant='default'
+              >
+                Professional Work
+              </Badge>
+            )}
+          </div>
         </Link>
       </motion.div>
       <div key={name}>
-        <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
+        <div className="flex flex-row gap-2 items-end">
+          <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
+        </div>
         <p className="text-2xl lg:text-3xl text-foreground/70 font-bold">{subtitle}</p>
         <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
         <div className="flex flex-row gap-2 mt-3 md:mt-6">
