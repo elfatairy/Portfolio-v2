@@ -35,7 +35,7 @@ export const projects: Project[] = [
     description:
       "A draggable and zoomable grid system for placing items. Built with Motion.dev.",
     longDescription:
-      "Dynamic Gridline is a powerful React component library that creates interactive, zoomable, and pannable grid canvases for positioning content with precision. Built with React, Motion (Framer Motion), and TypeScript, it provides a Grid container with smooth animations and a GridItem component for absolute positioning within grid coordinates. Features include mouse/touch panning, mouse wheel zooming, keyboard navigation, customizable grid appearance, click event handlers, and selective interaction controls. Perfect for creating interactive dashboards, design tools, data visualizations, or any application requiring precise spatial content placement with intuitive navigation controls.",
+      "Dynamic Gridline is a powerful React component library that creates interactive, zoomable, and pannable grid canvases for positioning content. It provides a Grid container with smooth animations and a GridItem component for absolute positioning within grid coordinates. Features include mouse/touch panning, mouse wheel zooming, keyboard navigation, customizable grid appearance, click event handlers, and selective interaction controls. Perfect for creating interactive dashboards, design tools, data visualizations, or any application requiring precise spatial content placement with intuitive navigation controls.",
     skills: ["Motion.dev", "TypeScript", "React"],
     link: "https://www.npmjs.com/package/dynamic-gridline",
     github: "https://github.com/elfatairy/dynamic-gridline",
