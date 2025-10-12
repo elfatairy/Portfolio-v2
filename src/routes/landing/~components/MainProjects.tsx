@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
 import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 
 
 export default function MainProjects() {
@@ -20,11 +21,11 @@ export default function MainProjects() {
   )
 }
 
-function Project({ name, subtitle, description, link, video, slug }: Project) {
+function Project({ name, subtitle, description, link, video, slug, type }: Project) {
   return (
     <div className="flex flex-col ml:flex-row ml:even:flex-row-reverse gap-4" key={name}>
       <motion.div
-        className="ml:w-3/4"
+        className={cn(type === "mobile" ? "w-1/2" : "w-3/4")}
         whileHover={{ scale: .95 }}
         whileFocus={{ scale: .95 }}
         whileTap={{ scale: 0.9 }}
@@ -32,10 +33,10 @@ function Project({ name, subtitle, description, link, video, slug }: Project) {
           scale: { duration: 0.2 }
         }}
       >
-        <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'}>
+        <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'} className="flex justify-end mr-10">
           <video
             src={video}
-            className="w-full aspect-video rounded-lg"
+            className={cn(type === "mobile" ? "aspect-6/13 w-4/10" : "aspect-video", "rounded-lg")}
             loop
             autoPlay
             muted
@@ -44,9 +45,9 @@ function Project({ name, subtitle, description, link, video, slug }: Project) {
           />
         </Link>
       </motion.div>
-      <div key={name} className="">
+      <div key={name}>
         <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
-        <p className="text-2xl lg:text-3xl text-foreground/60 font-bold">{subtitle}</p>
+        <p className="text-2xl lg:text-3xl text-foreground/70 font-bold">{subtitle}</p>
         <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
         <div className="flex flex-row gap-2 mt-3 md:mt-6">
           <Button variant="outline" size="default" asChild>

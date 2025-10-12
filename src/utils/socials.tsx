@@ -17,7 +17,7 @@ export const SOCIALS = [
   },
   {
     name: 'LeetCode',
-    url: 'https://leetcode.com/u/omar13102005',
+    url: 'https://leetcode.com/u/elfatairy',
     icon: () => <LeetCode />,
     color: '#FFA116',
     darkColor: '#FFA116'

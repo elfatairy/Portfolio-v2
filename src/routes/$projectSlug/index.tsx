@@ -68,11 +68,13 @@ function PageContent() {
               Try It
             </a>
           </Button>
-          <Button variant="outline" size="default" asChild>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              GitHub Repo
-            </a>
-          </Button>
+          {
+            project.github && (<Button variant="outline" size="default" asChild>
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                GitHub Repo
+              </a>
+            </Button>)
+          }
         </div>
       </div>
       <div className="lg:ml-auto lg:w-1/2">

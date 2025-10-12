@@ -1,17 +1,19 @@
 import dynamicGridlineVideo from "@/assets/demos/dynamic-gridline.mp4";
 import ideawallVideo from "@/assets/demos/ideawall.mp4";
 import taskaVideo from "@/assets/demos/taska.mp4";
+import infotikVideo from "@/assets/demos/infotik.mp4";
 
 export interface Project {
   slug: string;
   name: string;
+  type: "mobile" | "web";
   subtitle: string;
   description: string;
   longDescription: string;
   skills: string[];
   link: string;
   video: string;
-  github: string;
+  github?: string;
 }
 
 export const projects: Project[] = [
@@ -29,8 +31,31 @@ export const projects: Project[] = [
   //   video: dashboardyVideo,
   // },
   {
+    slug: "infotik",
+    name: "Infotik",
+    type: "mobile",
+    subtitle: "Social Media App",
+    description:
+      "InfoTik is your new go-to platform for learning, discovery, and staying informed—designed to help you break free from mindless scrolling and step into a smarter digital experience.",
+    longDescription: `InfoTik is built for people who crave content that actually adds value. Whether you're curious about world events, tech breakthroughs, psychology hacks, or deep dives—InfoTik gives you everything in an engaging, social format.
+      <br /><br />
+      Tiks: The short-form video feed brings you informative, entertaining videos backed by facts. 
+      <br /><br />
+      Pulses: Pulse is your scrollable news and thoughts feed—like Twitter, but with purpose.`,
+    skills: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Router",
+      "React Query",
+    ],
+    link: "https://apps.apple.com/eg/app/info-tik/id6740635815 ",
+    video: infotikVideo,
+  },
+  {
     slug: "taska",
     name: "Taska",
+    type: "web",
     subtitle: "Work Management App",
     description:
       "A work management application that helps teams organize their work, track projects and sprints, and monitor the status of all tasks using visual boards.",
@@ -50,6 +75,7 @@ export const projects: Project[] = [
   {
     slug: "dynamic-gridline",
     name: "Dynamic Gridline",
+    type: "web",
     subtitle: "NPM Package",
     description:
       "A draggable and zoomable grid system for placing items. Built with Motion.dev.",
@@ -63,6 +89,7 @@ export const projects: Project[] = [
   {
     slug: "ideawall",
     name: "Idea Wall",
+    type: "web",
     subtitle: "Note Taking App",
     description:
       "Real-time collaborative whiteboard where users create, react to, and share sticky notes together.",
