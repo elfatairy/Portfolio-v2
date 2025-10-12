@@ -13,13 +13,13 @@ That's when I decided: **I'll just build it myself.**
 
 ### Challenge 1: Performance
 
-My initial approach was to position the grid items with CSS and track the X and Y positions with a react state. While this worked initially, I quickly realized it wouldn't scale. In a collaborative environment like IdeaWall, imagine dozens of sticky notes that all need to be repositioned and scaled with every grid movement, each triggering state updates and re-renders. 
+My initial approach was to position the grid items with CSS and track the X and Y positions with React state. While this worked initially, I quickly realized it wouldn't scale. In a collaborative environment like IdeaWall, imagine dozens of sticky notes that all need to be repositioned and scaled with every grid movement, each triggering state updates and re-renders. 
 
 After researching performance-optimized animation libraries, I chose Framer Motion (now Motion.dev) because of its hybrid approach—combining CSS animations with JavaScript's `requestAnimationFrame` to efficiently animate between states without triggering React re-renders.
 
 ### Challenge 2: Component Architecture
 
-Grid items needed to know about the grid container's state (zoom level, pan position) to position themselves correctly. So I implemented the [Compound Pattern](https://www.patterns.dev/react/compound-pattern/) using Context API. The grid container provides its state through context, and grid items consume this state to calculate their correct positions. This approach ensures tight coupling between the grid and its items.
+Grid items needed to know about the grid container's state (zoom level, pan position) to position themselves correctly. So I implemented the [Compound Pattern](https://www.patterns.dev/react/compound-pattern/) using the Context API. The grid container provides its state through context, and grid items consume this state to calculate their correct positions. This approach ensures tight coupling between the grid and its items.
 
 ```tsx
 // Simplified example of the compound component pattern
@@ -53,11 +53,11 @@ This configuration automatically handled CSS bundling and importing, ensuring th
 
 ### Challenge 4: Development Workflow
 
-I needed to see how the grid behaved in real-time while developing the package, so I learned and implemented PNPM workspaces, creating a monorepo structure that allowed me to develop the package and see results immediately with hot reloading.
+I needed to see how the grid behaved in real-time while developing the package, so I learned about and implemented PNPM workspaces, creating a monorepo structure that allowed me to develop the package and see results immediately with hot reloading.
 
 ### Challenge 5: Configuration and Flexibility
 
-My original implementation was full of hard-coded values that worked for my specific use case (Idea Wall) but wouldn't serve a broader audience. I needed to make the package highly configurable without overwhelming users with options. So I designed a configuration interface with sensible defaults.
+My original implementation was full of hard-coded values that worked for my specific use case (IdeaWall) but wouldn't serve a broader audience. I needed to make the package highly configurable without overwhelming users with options. So I designed a configuration interface with sensible defaults.
 
 This required significant refactoring, but it transformed a project-specific solution into a flexible, reusable package.
 
@@ -65,4 +65,4 @@ This required significant refactoring, but it transformed a project-specific sol
 
 ## The Results
 
-One day after publishing, the package saw over 70 downloads on NPM. While some of those downloads were likely from my own testing, seeing real adoption from other developers was both exciting and motivating.
+One day after publishing, the package saw over 70 downloads on npm. While some of those downloads were likely from my own testing, seeing real adoption from other developers was both exciting and motivating.

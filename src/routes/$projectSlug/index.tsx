@@ -75,7 +75,7 @@ function PageContent() {
           </Button>
         </div>
       </div>
-      <div className="lg:ml-auto lg:w-1/2 py-10">
+      <div className="lg:ml-auto lg:w-1/2">
         {/* <video src={project.video} autoPlay loop muted playsInline preload="metadata" /> */}
         <Markdown>{showcase ?? ''}</Markdown>
       </div>
