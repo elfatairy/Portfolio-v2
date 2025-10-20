@@ -34,8 +34,8 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
           scale: { duration: 0.2 }
         }}
       >
-        <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'} className="flex justify-end mr-10">
-          <div className={cn("relative overflow-hidden", type === "mobile" && "w-4/10")}>
+        <Link to='/$projectSlug' params={{ projectSlug: slug }} aria-label={name + ' Demo'} className="flex ml:justify-end mr-10">
+          <div className={cn("relative overflow-hidden", type === "mobile" && "sm:w-7/10 lg:w-4/10")}>
             <video
               src={video}
               className={cn(type === "mobile" ? "aspect-6/13" : "aspect-video", "rounded-lg")}
@@ -47,7 +47,7 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
             />
             {workExperience && (
               <Badge
-                className="absolute top-8 -left-12 px-10 rotate-[-45deg] group-hover:opacity-0 transition-opacity duration-200"
+                className="hidden lg:block absolute top-8 -left-12 px-10 rotate-[-45deg] group-hover:opacity-0 transition-opacity duration-200"
                 variant='default'
               >
                 Professional Work
@@ -61,6 +61,12 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
           <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
         </div>
         <p className="text-2xl lg:text-3xl text-foreground/70 font-bold">{subtitle}</p>
+        <Badge
+          className="lg:hidden px-2 mt-2 group-hover:opacity-0 transition-opacity duration-200"
+          variant='default'
+        >
+          Professional Work
+        </Badge>
         <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
         <div className="flex flex-row gap-2 mt-3 md:mt-6">
           <Button variant="outline" size="default" asChild>
