@@ -2,10 +2,8 @@ import { otherProjects, type OtherProject } from "@/data/otherProjects";
 import { animate, motion, useMotionValue } from "motion/react";
 import { useEffect } from "react";
 import useMeasure from "react-use-measure";
-import { useVideosLoading } from "@/hooks/useVideosLoading";
 
 export default function OtherProjects() {
-  const { handleVideoLoad } = useVideosLoading()
   const [carouselRef, { width }] = useMeasure();
 
   const xTrans = useMotionValue(0);
@@ -34,7 +32,7 @@ export default function OtherProjects() {
         >
           {
             [...otherProjects, ...otherProjects].map((project, index) => (
-              <OtherProject key={index} {...project} onLoad={handleVideoLoad} />
+              <OtherProject key={index} {...project} />
             ))
           }
         </motion.div>
@@ -43,11 +41,7 @@ export default function OtherProjects() {
   )
 }
 
-interface OtherProjectProps extends OtherProject {
-  onLoad: (videoSrc: string) => void
-}
-
-function OtherProject({ name, video, onLoad }: OtherProjectProps) {
+function OtherProject({ name, video }: OtherProject) {
   return (
     <video
       src={video}
@@ -56,8 +50,7 @@ function OtherProject({ name, video, onLoad }: OtherProjectProps) {
       autoPlay
       muted
       playsInline
-      preload="metadata"
-      onLoadedData={() => onLoad(video)}
+      preload="none"
       aria-label={name}
     />
   )

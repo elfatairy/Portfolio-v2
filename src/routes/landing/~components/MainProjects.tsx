@@ -43,7 +43,7 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
               autoPlay
               muted
               playsInline
-              preload="metadata"
+              preload="none"
             />
             {workExperience && (
               <Badge

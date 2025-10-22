@@ -1,9 +1,3 @@
-import dashboardyVideo from "@/assets/demos/dashboardy.mp4";
-import containmentVideo from "@/assets/demos/containmentVideo.mov";
-import laundrygoVideo from "@/assets/demos/laundrygo.mp4";
-import fruitstoreVideo from "@/assets/demos/fruitstore.mp4";
-import learncoroporateVideo from "@/assets/demos/learncoroporate.mp4";
-
 export interface OtherProject {
   name: string;
   video: string;
@@ -13,27 +7,27 @@ export interface OtherProject {
 export const otherProjects: OtherProject[] = [
   {
     name: "Dashboardy",
-    video: dashboardyVideo,
+    video: "/demos/dashboardy.mp4",
     type: "web",
   },
   {
     name: "Containment",
-    video: containmentVideo,
+    video: "/demos/containmentVideo.mov",
     type: "mobile",
   },
   {
     name: "Laundrygo",
-    video: laundrygoVideo,
+    video: "/demos/laundrygo.mp4",
     type: "web",
   },
   {
     name: "fruitstore",
-    video: fruitstoreVideo,
+    video: "/demos/fruitstore.mp4",
     type: "web",
   },
   {
     name: "learncoroporate",
-    video: learncoroporateVideo,
+    video: "/demos/learncoroporate.mp4",
     type: "web",
   },
 ];

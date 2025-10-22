@@ -23,7 +23,7 @@ function Page() {
 
 function PageContent() {
   const { projectSlug } = Route.useParams()
-  const { setPageLoaded, setVideosLoaded } = useLoading()
+  const { setPageLoaded } = useLoading()
   const project = projects.find(project => project.slug === projectSlug)!
   const [showcase, setShowcase] = useState<string>()
 
@@ -45,7 +45,6 @@ function PageContent() {
 
   useEffect(() => {
     setPageLoaded()
-    setVideosLoaded()
   }, [])
 
   return (

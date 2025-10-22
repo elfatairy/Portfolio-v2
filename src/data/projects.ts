@@ -1,8 +1,3 @@
-import dynamicGridlineVideo from "@/assets/demos/dynamic-gridline.mp4";
-import ideawallVideo from "@/assets/demos/ideawall.mp4";
-import taskaVideo from "@/assets/demos/taska.mp4";
-import infotikVideo from "@/assets/demos/infotik.mp4";
-
 export interface Project {
   slug: string;
   name: string;
@@ -18,19 +13,6 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // {
-  //   slug: "dashboardy",
-  //   name: "Dashboardy",
-  //   subtitle: "Management App",
-  //   description:
-  //     'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
-  //   longDescription:
-  //     'A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>. A dashboard for managing your projects and tasks. Contains dynamic tables with various filtering and sorting options. Built with <span class="font-semibold">Vanilla JavaScript</span>, and <span class="font-semibold">0 dependencies</span>.',
-  //   skills: ["Vanilla JavaScript", "TypeScript", "Playwright"],
-  //   link: "https://dashboardy.omarhassan.net",
-  //   github: "https://github.com/elfatairy/dashboardy",
-  //   video: dashboardyVideo,
-  // },
   {
     slug: "infotik",
     name: "Infotik",
@@ -52,7 +34,7 @@ export const projects: Project[] = [
     ],
     workExperience: true,
     link: "https://apps.apple.com/eg/app/info-tik/id6740635815 ",
-    video: infotikVideo,
+    video: "/demos/infotik.mp4",
   },
   {
     slug: "taska",
@@ -72,7 +54,7 @@ export const projects: Project[] = [
     ],
     link: "https://taska.omarhassan.net",
     github: "https://github.com/elfatairy/taska",
-    video: taskaVideo,
+    video: "/demos/taska.mp4",
   },
   {
     slug: "dynamic-gridline",
@@ -86,7 +68,7 @@ export const projects: Project[] = [
     skills: ["Motion.dev", "TypeScript", "React"],
     link: "https://www.npmjs.com/package/dynamic-gridline",
     github: "https://github.com/elfatairy/dynamic-gridline",
-    video: dynamicGridlineVideo,
+    video: "/demos/dynamic-gridline.mp4",
   },
   {
     slug: "ideawall",
@@ -114,6 +96,6 @@ export const projects: Project[] = [
     ],
     link: "https://ideawall.omarhassan.net",
     github: "https://github.com/elfatairy/ideawall",
-    video: ideawallVideo,
+    video: "/demos/ideawall.mp4",
   },
 ];

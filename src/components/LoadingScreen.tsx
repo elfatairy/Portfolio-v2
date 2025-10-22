@@ -1,5 +1,4 @@
-import { useLoading } from "@/contexts/LoadingContext"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 const hideLoadingScreen = () => {
   document.getElementById('static-loading-text-name')?.classList.add('opacity-0', 'transition-opacity', 'duration-500')
@@ -23,24 +22,11 @@ const hideLoadingScreen = () => {
 }
 
 export default function LoadingScreen() {
-  const [timeoutted, setTimeoutted] = useState(false)
-  const { isLoading } = useLoading()
-
   useEffect(() => {
     setTimeout(() => {
-      setTimeoutted(true)
-    }, 500)
-
-    setTimeout(() => {
       hideLoadingScreen()
-    }, 4000)
+    }, 300)
   }, [])
-
-  useEffect(() => {
-    if (!isLoading && timeoutted) {
-      hideLoadingScreen()
-    }
-  }, [isLoading, timeoutted])
 
   return null
 }
