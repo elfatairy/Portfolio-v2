@@ -5,6 +5,13 @@ import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions";
 export default function Hero() {
   const { ref } = useUpdateSectionDimensions('hero')
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      window.scrollTo({ top: contactSection.offsetTop, behavior: 'smooth' })
+    }
+  }
+
   return (
     <div id="hero" className="relative flex flex-col items-center" ref={ref}>
       <Overlay />
@@ -15,8 +22,10 @@ export default function Hero() {
           I am a frontend engineer with some backend experience, passionate about creating top-notch applications. I focus on making apps performant, accessible, responsive, and highly user-friendly. I care deeply about my work and always put in the extra effort, constantly aspiring to improve and be a better version of myself.
         </p>
         <div className="mt-4 sm:mt-8 flex gap-2 sm:gap-4 flex-row">
-          <Button variant="outline" size="lg">Say Hi</Button>
-          <Button variant="outline" size="lg">Download Resume</Button>
+          <Button variant="outline" size="lg" onClick={scrollToContact}>Say Hi</Button>
+          <Button variant="outline" size="lg" asChild>
+            <a href="/resume.pdf" target="_blank">Download Resume</a>
+          </Button>
         </div>
       </div>
     </div>
