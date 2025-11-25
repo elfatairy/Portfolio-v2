@@ -5,53 +5,44 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "motion/react"
 import { toast } from "react-toastify"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { EMAIL } from "@/lib/contants"
 import { SOCIALS } from "@/lib/socials"
 import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions"
 
 const footerPadding = 16
-const smHorizontalPadding = 20
-const smVerticalPadding = 30
-const mdHorizontalPadding = 100
-const mdVerticalPadding = 60
+const horizontalPadding = {
+  sm: 20,
+  md: 100
+}
+const verticalPadding = {
+  sm: 30,
+  md: 60
+}
 
 export default function Footer() {
   const { ref } = useUpdateSectionDimensions('contact')
-  const [childVariants, setChildVariants] = useState({
+  const [size, setSize] = useState<'sm' | 'md'>('md')
+
+  if (typeof window !== 'undefined' && window.innerWidth < 640 && size === 'md') {
+    setSize('sm')
+  }
+  
+  const childVariants = {
     hidden: {
-      paddingTop: `${footerPadding + mdVerticalPadding}px`,
-      paddingBottom: `${footerPadding + mdVerticalPadding}px`,
-      paddingLeft: `${footerPadding + mdHorizontalPadding}px`,
-      paddingRight: `${footerPadding + mdHorizontalPadding}px`,
+      paddingTop: `${footerPadding + verticalPadding[size]}px`,
+      paddingBottom: `${footerPadding + verticalPadding[size]}px`,
+      paddingLeft: `${footerPadding + horizontalPadding[size]}px`,
+      paddingRight: `${footerPadding + horizontalPadding[size]}px`,
       borderRadius: '0'
     },
     visible: {
-      paddingTop: `${mdVerticalPadding}px`,
-      paddingBottom: `${mdVerticalPadding}px`,
-      paddingLeft: `${mdHorizontalPadding}px`,
-      paddingRight: `${mdHorizontalPadding}px`,
+      paddingTop: `${verticalPadding[size]}px`,
+      paddingBottom: `${verticalPadding[size]}px`,
+      paddingLeft: `${horizontalPadding[size]}px`,
+      paddingRight: `${horizontalPadding[size]}px`,
       borderRadius: '20px'
     }
-  })
-
-  if (typeof window !== 'undefined' && window.innerWidth < 640) {
-    setChildVariants({
-      hidden: {
-        paddingTop: `${footerPadding + smVerticalPadding}px`,
-        paddingBottom: `${footerPadding + smVerticalPadding}px`,
-        paddingLeft: `${footerPadding + smHorizontalPadding}px`,
-        paddingRight: `${footerPadding + smHorizontalPadding}px`,
-        borderRadius: '0'
-      },
-      visible: {
-        paddingTop: `${smVerticalPadding}px`,
-        paddingBottom: `${smVerticalPadding}px`,
-        paddingLeft: `${smHorizontalPadding}px`,
-        paddingRight: `${smHorizontalPadding}px`,
-        borderRadius: '20px'
-      }
-    })
   }
 
   const grandParentVariants = {
@@ -104,6 +95,7 @@ export default function Footer() {
         <motion.div
           className="relative bg-footer-background h-full w-full rounded-20"
           variants={childVariants}
+          suppressHydrationWarning
           transition={{
             duration: 0.6,
             ease: 'easeIn'

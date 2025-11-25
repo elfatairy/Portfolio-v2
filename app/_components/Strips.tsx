@@ -6,7 +6,7 @@ import { EMAIL } from '@/lib/contants'
 import { SOCIALS } from '@/lib/socials'
 
 export function SocialsStrip() {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   return (
     <div className="flex-col items-center fixed gap-8 bottom-0 left-10 z-elevated hidden md:flex">
@@ -17,7 +17,7 @@ export function SocialsStrip() {
           target="_blank"
           rel="noopener noreferrer"
           className='text-foreground'
-          whileHover={{ scale: 1.2, color: theme === 'dark' ? social.darkColor : social.color }}
+          whileHover={{ scale: 1.2, color: resolvedTheme === 'dark' ? social.darkColor : social.color }}
           animate={{
             color: 'var(--foreground)'
           }}

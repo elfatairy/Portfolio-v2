@@ -5,7 +5,10 @@ import { useEffect, useState } from 'react'
 import { useSections } from '@/app/_contexts/SectionsContext'
 import { useIsScrolled } from '@/hooks/useIsScrolled'
 import LightDarkToggle from './LightDarkToggle'
-import Link from 'next/link'
+import Link, { useLinkStatus } from 'next/link'
+import { projects } from '@/data/projects'
+import { useRouter } from 'next/navigation'
+import LoadingScreen from './LoadingScreen'
 
 const sections = {
   hero: { label: 'About Me' },
@@ -20,6 +23,7 @@ export default function Header() {
   const isScrolled = useIsScrolled()
   const { sectionsEdges } = useSections()
   const [activeSection, setActiveSection] = useState<Section | null>(null)
+  const { pending } = useLinkStatus()
 
   useEffect(() => {
     function handleScroll() {
@@ -36,6 +40,10 @@ export default function Header() {
       document.removeEventListener('scroll', handleScroll)
     }
   }, [sectionsEdges])
+
+  if (pending) {
+    return <LoadingScreen />
+  }
 
   return (
     <header className="px-2 flex gap-2 fixed top-4 left-0 right-0 justify-center z-navigation pointer-events-none">

@@ -1,10 +1,10 @@
 import { useTheme } from "next-themes"
 
 export default function LightDarkToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
   }
 
   return (

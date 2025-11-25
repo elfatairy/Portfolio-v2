@@ -28,7 +28,7 @@ export default function Skills() {
 }
 
 function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactNode, link: string, color: string, bgColor: string }) {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   const grandParentVariant = {
     initial: { scale: 1 },
@@ -87,7 +87,7 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
       <motion.div
         variants={parnetVariant}
         animate={{
-          backgroundColor: theme === 'dark' ? color : bgColor,
+          backgroundColor: resolvedTheme === 'dark' ? color : bgColor,
         }}
         className={`text-foreground absolute inset-0 items-center justify-center overflow-hidden hidden md:flex`}
       >
@@ -95,7 +95,7 @@ function Card({ name, icon, link, color, bgColor }: { name: string, icon: ReactN
           className="font-bold text-2xl max-w-50 text-center"
           variants={childVariant}
           animate={{
-            color: theme === 'dark' ? bgColor : color,
+            color: resolvedTheme === 'dark' ? bgColor : color,
           }}
         >
           {name}

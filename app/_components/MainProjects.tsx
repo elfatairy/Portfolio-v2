@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { projects, type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Hint from "@/components/ui/hint";
 
 
 export default function MainProjects() {
@@ -55,6 +56,9 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
                 Professional Work
               </Badge>
             )}
+            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              <Hint className="size-10" />
+            </div>
           </div>
         </Link>
       </motion.div>
@@ -74,6 +78,7 @@ function Project({ name, subtitle, description, link, video, slug, type, workExp
           <Button variant="outline" size="default" asChild>
             <Link href={`/${slug}`}>
               Case Study
+              <Hint />
             </Link>
           </Button>
           <Button variant="outline" size="default" asChild>

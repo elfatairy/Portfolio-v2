@@ -1,10 +1,8 @@
 import ReactMarkdown from "react-markdown"
-import { useTheme } from 'next-themes'
 import Image from "next/image"
 import SyntaxHighlighter from "./SyntaxHighlighter";
 
 export default function Markdown({ children }: { children: string }) {
-
   return (
     <div className="prose prose-lg max-w-none">
       <ReactMarkdown
