@@ -1,0 +1,88 @@
+'use client'
+
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { projects, type Project } from "@/data/projects";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+
+export default function MainProjects() {
+  return (
+    <div className="text-foreground justify-center flex flex-col mx-4 xs:mx-15 md:mx-25 lx:mx-35 mb-10 pt-15 lg:pt-25" id="projects">
+      <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold text-center">Projects</h2>
+
+      <div className="flex flex-col gap-16 md:gap-30 mt-10 md:mt-30">
+        {
+          projects.map((project) => (
+            <Project key={project.name} {...project} />
+          ))
+        }
+      </div>
+    </div>
+  )
+}
+
+function Project({ name, subtitle, description, link, video, slug, type, workExperience }: Project) {
+  return (
+    <div className="flex flex-col ml:flex-row ml:even:flex-row-reverse gap-4" key={name}>
+      <motion.div
+        className={cn(type === "mobile" ? "w-1/2" : "w-3/4", "group")}
+        whileHover={{ scale: .95 }}
+        whileFocus={{ scale: .95 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{
+          scale: { duration: 0.2 }
+        }}
+      >
+        <Link href={`/${slug}`} aria-label={name + ' Demo'} className="flex ml:justify-end mr-10">
+          <div className={cn("relative overflow-hidden", type === "mobile" && "sm:w-7/10 lg:w-4/10")}>
+            <video
+              src={video}
+              className={cn(type === "mobile" ? "aspect-6/13" : "aspect-video", "rounded-lg")}
+              loop
+              autoPlay
+              muted
+              playsInline
+              preload="none"
+            />
+            {workExperience && (
+              <Badge
+                className="hidden lg:block absolute top-8 -left-12 px-10 -rotate-45 group-hover:opacity-0 transition-opacity duration-200"
+                variant='default'
+              >
+                Professional Work
+              </Badge>
+            )}
+          </div>
+        </Link>
+      </motion.div>
+      <div key={name}>
+        <div className="flex flex-row gap-2 items-end">
+          <h3 className="text-2xl lg:text-3xl font-bold">{name}</h3>
+        </div>
+        <p className="text-2xl lg:text-3xl text-foreground/70 font-bold">{subtitle}</p>
+        <Badge
+          className="lg:hidden px-2 mt-2 group-hover:opacity-0 transition-opacity duration-200"
+          variant='default'
+        >
+          Professional Work
+        </Badge>
+        <p className="lg:text-base mt-3 md:mt-6 text-balance max-w-150 ml:max-w-100" dangerouslySetInnerHTML={{ __html: description }} />
+        <div className="flex flex-row gap-2 mt-3 md:mt-6">
+          <Button variant="outline" size="default" asChild>
+            <Link href={`/${slug}`}>
+              Case Study
+            </Link>
+          </Button>
+          <Button variant="outline" size="default" asChild>
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              Try It
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}

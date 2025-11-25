@@ -1,0 +1,35 @@
+'use client'
+
+import Overlay from "./Overlay";
+import { Button } from "@/components/ui/button";
+import { useUpdateSectionDimensions } from "@/hooks/useUpdateSectionDimensions";
+
+export default function Hero() {
+  const { ref } = useUpdateSectionDimensions('hero')
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      window.scrollTo({ top: contactSection.offsetTop, behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <div id="hero" className="relative flex flex-col items-center" ref={ref}>
+      <Overlay />
+      <div className="max-w-260 mx-4 xs:mx-15 md:mx-35 mt-30 lg:mt-40 z-elevated lg:mb-10">
+        <h1 className="text-3xl 2xs:text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-[1.1]">Hi, I&apos;m Omar Hassan.</h1>
+        <p className="text-foreground/80 font-bold text-3xl 2xs:text-4xl sm:text-5xl lg:text-7xl leading-[1.1]">An Eager Frontend Developer.</p>
+        <p className="text-foreground text-base 2xs:text-base sm:text-xl lg:text-2xl mt-8 text-balance">
+          I am a frontend engineer with some backend experience, passionate about creating top-notch applications. I focus on making apps performant, accessible, responsive, and highly user-friendly. I care deeply about my work and always put in the extra effort, constantly aspiring to improve and be a better version of myself.
+        </p>
+        <div className="mt-4 sm:mt-8 flex gap-2 sm:gap-4 flex-row">
+          <Button variant="outline" size="lg" onClick={scrollToContact}>Say Hi</Button>
+          <Button variant="outline" size="lg" asChild>
+            <a href="/resume.pdf" target="_blank">Download Resume</a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}

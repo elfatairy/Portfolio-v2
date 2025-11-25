@@ -1,0 +1,175 @@
+import ReactMarkdown from "react-markdown"
+import { useTheme } from 'next-themes'
+import Image from "next/image"
+import SyntaxHighlighter from "./SyntaxHighlighter";
+
+export default function Markdown({ children }: { children: string }) {
+
+  return (
+    <div className="prose prose-lg max-w-none">
+      <ReactMarkdown
+        components={{
+          h1: ({ children }) => (
+            <h1 className="text-4xl font-bold mb-8 mt-12 first:mt-0 text-foreground border-b border-border pb-4">
+              {children}
+            </h1>
+          ),
+          h2: ({ children }) => (
+            <h2 className="text-3xl font-bold mb-6 mt-10 text-foreground border-l-4 border-primary pl-4">
+              {children}
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="text-2xl font-semibold mb-4 mt-8 text-foreground">
+              {children}
+            </h3>
+          ),
+          h4: ({ children }) => (
+            <h4 className="text-xl font-semibold mb-3 mt-6 text-primary">
+              {children}
+            </h4>
+          ),
+          h5: ({ children }) => (
+            <h5 className="text-lg font-medium mb-3 mt-4 text-foreground">
+              {children}
+            </h5>
+          ),
+          h6: ({ children }) => (
+            <h6 className="text-base font-medium mb-2 mt-3 text-foreground/80 uppercase tracking-wide">
+              {children}
+            </h6>
+          ),
+          p: ({ children }) => (
+            <p className="text-base leading-7 mb-6 text-foreground/90">
+              {children}
+            </p>
+          ),
+          ul: ({ children }) => (
+            <ul className="space-y-2 mb-6 ml-4">
+              {children}
+            </ul>
+          ),
+          ol: ({ children }) => (
+            <ol className="space-y-2 mb-6 ml-4 list-decimal list-outside">
+              {children}
+            </ol>
+          ),
+          li: ({ children }) => (
+            <li className="text-base leading-5 text-foreground/90 relative pl-2  marker:hidden">
+              {children}
+            </li>
+          ),
+          a: ({ children, href }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4 hover:decoration-primary/60 transition-colors duration-200 font-medium"
+            >
+              {children}
+            </a>
+          ),
+          img: ({ src, alt }) => {
+            if (typeof src !== 'string') throw new Error('Blob image not supported');
+
+            if (src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg')) {
+              return (
+                <video
+                  src={src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto my-8 rounded-lg overflow-hidden shadow-lg border border-border"
+                  preload="metadata"
+                >
+                  {alt}
+                </video>
+              )
+            }
+
+            return (
+              <Image
+                width={1000}
+                height={1000}
+                src={src}
+                alt={alt || ''}
+                className="w-full h-auto my-8 rounded-lg overflow-hidden shadow-lg border border-border"
+              />
+            )
+          },
+          code: ({ children, className }) => {
+            const match = /language-(\w+)/.exec(className || '')
+            const language = match ? match[1] : ''
+
+            if (language) {
+              return (
+                <div className="my-6 rounded-lg overflow-hidden border border-border shadow-sm">
+                  <div className="bg-nav/10 px-4 py-2 border-b border-border">
+                    <span className="text-sm font-medium text-foreground/70 uppercase tracking-wide">
+                      {language}
+                    </span>
+                  </div>
+                  <SyntaxHighlighter language={language}>{String(children).replace(/\n$/, '')}</SyntaxHighlighter>
+                </div>
+              )
+            }
+
+            return (
+              <code className="text-primary px-2 py-1 rounded-md text-sm font-mono border border-border">
+                {children}
+              </code>
+            )
+          },
+          blockquote: ({ children }) => (
+            <blockquote className="border-l-4 border-primary bg-primary/5 pl-6 py-4 my-6 italic text-foreground/90 rounded-r-lg [&>p:last-child]:mb-0">
+              {children}
+            </blockquote>
+          ),
+          hr: () => (
+            <hr className="my-12 border-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
+          ),
+          table: ({ children }) => (
+            <div className="my-8 overflow-x-auto rounded-lg border border-border shadow-sm">
+              <table className="w-full">
+                {children}
+              </table>
+            </div>
+          ),
+          thead: ({ children }) => (
+            <thead className="bg-nav/10 border-b border-border">
+              {children}
+            </thead>
+          ),
+          tbody: ({ children }) => (
+            <tbody className="divide-y divide-border">
+              {children}
+            </tbody>
+          ),
+          th: ({ children }) => (
+            <th className="px-6 py-3 text-left text-sm font-semibold text-foreground uppercase tracking-wider">
+              {children}
+            </th>
+          ),
+          td: ({ children }) => (
+            <td className="px-6 py-4 text-sm text-foreground/90">
+              {children}
+            </td>
+          ),
+          strong: ({ children }) => (
+            <strong className="font-semibold text-primary">
+              {children}
+            </strong>
+          ),
+          em: ({ children }) => (
+            <em className="italic text-foreground/80">
+              {children}
+            </em>
+          ),
+        }}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
+  )
+}
