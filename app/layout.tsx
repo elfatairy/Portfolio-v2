@@ -4,6 +4,7 @@ import { LoadingProvider } from "@/contexts/LoadingContext";
 import LoadingScreen from "@/components/LoadingScreen";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Omar Hassan · Portfolio",
@@ -23,6 +24,7 @@ export default function RootLayout({
             <LoadingScreen />
             {children}
             <ToastContainer position="top-right" />
+            <Analytics />
           </LoadingProvider>
         </ThemeProvider>
       </body>
