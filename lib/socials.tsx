@@ -10,7 +10,7 @@ export const SOCIALS = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/omar-hassan-81888320b',
+    url: 'https://www.linkedin.com/in/omar-alfatairy',
     icon: () => <LinkedIn />,
     color: '#0077B1',
     darkColor: '#0077B1'
