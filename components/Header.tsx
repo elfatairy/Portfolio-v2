@@ -6,9 +6,9 @@ import { useSections } from '@/app/_contexts/SectionsContext'
 import { useIsScrolled } from '@/hooks/useIsScrolled'
 import LightDarkToggle from './LightDarkToggle'
 import Link, { useLinkStatus } from 'next/link'
-import { projects } from '@/data/projects'
-import { useRouter } from 'next/navigation'
 import LoadingScreen from './LoadingScreen'
+import Image from 'next/image'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const sections = {
   hero: { label: 'About Me' },
@@ -60,6 +60,16 @@ export default function Header() {
         <SectionLink section="skills" active={activeSection === 'skills'} />
         <SectionLink section="projects" active={activeSection === 'projects'} />
         <SectionLink section="contact" active={activeSection === 'contact'} />
+        <div className='hidden 2xs:flex gap-2 text-nav-foreground'>
+          <Link href="https://ring.liampas.ca/left">
+            <ChevronLeft className='size-4 sm:size-5' />
+            <span className='sr-only'>Previous Website</span>
+          </Link>
+          <Link href="https://ring.liampas.ca/right">
+            <ChevronRight className='size-4 sm:size-5' />
+            <span className='sr-only'>Next Website</span>
+          </Link>
+        </div>
         <div className="ml-2 hidden 3xs:block">
           <LightDarkToggle />
         </div>
